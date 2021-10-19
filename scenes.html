@@ -83,6 +83,42 @@
     //And place it into the scene
     scene1.addChild(scene1Text);
 
+    // begin sprites for base state
+    // My kelp sprite
+    let kelp1 = PIXI.Sprite.from("img/kelp.png");
+        kelp1.scale.set(.5);
+        kelp1.tint = 0x212f55;
+        app.stage.addChild(kelp1);
+
+        // My coral sprite
+        let coral = PIXI.Sprite.from("img/coral.png");
+        coral.x = 300;
+        coral.scale.set(.5);
+        coral.tint = 0x253152;
+        app.stage.addChild(coral);
+
+        // My school sprite
+        let school = PIXI.Sprite.from("img/school.png");
+        school.tint = 0x090c14;
+        school.x = 200;
+        school.y = 55;
+        school.scale.set(.15);
+        app.stage.addChild(school);
+
+        // My second kelp sprite
+        let kelp2 = PIXI.Sprite.from("img/kelp.png");
+        kelp2.scale.set(.675);
+        kelp2.y = .4;
+        app.stage.addChild(kelp2);
+
+        // My second coral sprite
+        let coral2 = PIXI.Sprite.from("img/coral.png");
+        coral2.scale.set(.8);
+        coral2.y = 20;
+        coral2.x = -400;
+        coral2.tint = 0x5676c7;
+        app.stage.addChild(coral2);
+
 
     //SCENE 2
     let scene2 = new PIXI.Container();
