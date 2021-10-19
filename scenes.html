@@ -106,15 +106,15 @@
     // Swapping between scenes
     //
 
-    nextButton.onclick = () => {
-        app.stage.removeChild(scene1);
-        app.stage.addChild(scene2);
-    }
+    // nextButton.onclick = () => {
+    //     app.stage.removeChild(scene1);
+    //     app.stage.addChild(scene2);
+    // }
 
-    backButton.onclick = () => {
-        app.stage.removeChild(scene2);
-        app.stage.addChild(scene1);
-    }
+    // backButton.onclick = () => {
+    //     app.stage.removeChild(scene2);
+    //     app.stage.addChild(scene1);
+    // }
 
     /*
 
@@ -124,35 +124,35 @@
 
     */
 
-    nextButton.onclick = async () => {
-        //Fade out current scene
-        await Animate.to(scene1,{alpha:0,duration:500});
-        //Remove it from stage
-        app.stage.removeChild(scene1);
-        //Set next scene to zero alpha
-        scene2.alpha = 0;
-        //Add it to the stage
-        app.stage.addChild(scene2);
-        //Fade it in
-        await Animate.to(scene2,{alpha:1,duration:500});
-        //Reset the off-stage scene's alpha back
-        scene1.alpha = 1;
-    }
+    // nextButton.onclick = async () => {
+    //     //Fade out current scene
+    //     await Animate.to(scene1,{alpha:0,duration:500});
+    //     //Remove it from stage
+    //     app.stage.removeChild(scene1);
+    //     //Set next scene to zero alpha
+    //     scene2.alpha = 0;
+    //     //Add it to the stage
+    //     app.stage.addChild(scene2);
+    //     //Fade it in
+    //     await Animate.to(scene2,{alpha:1,duration:500});
+    //     //Reset the off-stage scene's alpha back
+    //     scene1.alpha = 1;
+    // }
 
-    backButton.onclick = async () => {
-        //Fade out current scene
-        await Animate.to(scene2,{alpha:0,duration:500});
-        //Remove it from stage
-        app.stage.removeChild(scene2);
-        //Set next scene to zero alpha
-        scene2.alpha = 0;
-        //Add it to the stage
-        app.stage.addChild(scene1);
-        //Fade it in
-        await Animate.to(scene1,{alpha:1,duration:500});
-        //Reset the off-stage scene's alpha back
-        scene2.alpha = 1;
-    }
+    // backButton.onclick = async () => {
+    //     //Fade out current scene
+    //     await Animate.to(scene2,{alpha:0,duration:500});
+    //     //Remove it from stage
+    //     app.stage.removeChild(scene2);
+    //     //Set next scene to zero alpha
+    //     scene2.alpha = 0;
+    //     //Add it to the stage
+    //     app.stage.addChild(scene1);
+    //     //Fade it in
+    //     await Animate.to(scene1,{alpha:1,duration:500});
+    //     //Reset the off-stage scene's alpha back
+    //     scene2.alpha = 1;
+    // }
 
     /*
 
@@ -160,43 +160,43 @@
 
     */
 
-    nextButton.onclick = async () => {
-        //Set up next scene on the right
-        scene2.x = app.view.width;
-        app.stage.addChild(scene2);
+    // nextButton.onclick = async () => {
+    //     //Set up next scene on the right
+    //     scene2.x = app.view.width;
+    //     app.stage.addChild(scene2);
 
-        //Fade out current scene as it moves off to the left
-        Animate.to(scene1,{x:-app.view.width,
-                                duration:500,easing:Animate.easeInOut});
-        //WHILE bringing in the next scene
-        await Animate.to(scene2,{x:0,
-                                duration:500,easing:Animate.easeInOut});
-        //We only "await" on the last animation, so that they both move at the same time
+    //     //Fade out current scene as it moves off to the left
+    //     Animate.to(scene1,{x:-app.view.width,
+    //                             duration:500,easing:Animate.easeInOut});
+    //     //WHILE bringing in the next scene
+    //     await Animate.to(scene2,{x:0,
+    //                             duration:500,easing:Animate.easeInOut});
+    //     //We only "await" on the last animation, so that they both move at the same time
 
-        //Remove the old scene from stage
-        app.stage.removeChild(scene1);
-        //And just to be nice, replace it where it belongs
-        scene1.x = 0;
-    }
+    //     //Remove the old scene from stage
+    //     app.stage.removeChild(scene1);
+    //     //And just to be nice, replace it where it belongs
+    //     scene1.x = 0;
+    // }
 
-    backButton.onclick = async () => {
-        //Set up next scene on the right
-        scene1.x = -app.view.width;
-        app.stage.addChild(scene1);
+    // backButton.onclick = async () => {
+    //     //Set up next scene on the right
+    //     scene1.x = -app.view.width;
+    //     app.stage.addChild(scene1);
 
-        //Fade out current scene as it moves off to the left
-        Animate.to(scene2,{x:app.view.width,
-                                duration:500,easing:Animate.easeInOut});
-        //WHILE bringing in the next scene
-        await Animate.to(scene1,{x:0,
-                                duration:500,easing:Animate.easeInOut});
-        //We only "await" on the last animation, so that they both move at the same time
+    //     //Fade out current scene as it moves off to the left
+    //     Animate.to(scene2,{x:app.view.width,
+    //                             duration:500,easing:Animate.easeInOut});
+    //     //WHILE bringing in the next scene
+    //     await Animate.to(scene1,{x:0,
+    //                             duration:500,easing:Animate.easeInOut});
+    //     //We only "await" on the last animation, so that they both move at the same time
 
-        //Remove the old scene from stage
-        app.stage.removeChild(scene2);
-        //And just to be nice, replace it where it belongs
-        scene2.x = 0;
-    }
+    //     //Remove the old scene from stage
+    //     app.stage.removeChild(scene2);
+    //     //And just to be nice, replace it where it belongs
+    //     scene2.x = 0;
+    // }
 
     /*
 
