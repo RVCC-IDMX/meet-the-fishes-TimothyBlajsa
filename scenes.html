@@ -47,6 +47,11 @@
     //Add view to the document
     document.body.appendChild(app.view);
 
+   // My background sprite
+   let background = PIXI.Sprite.from("img/background.jpg");
+        background.scale.set(.7);
+        app.stage.addChild(background);
+
     /*
         Depending on the system or context, these can be called "scenes" "views" "pages" "panels" or all sorts of other things.
 
