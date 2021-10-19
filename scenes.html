@@ -351,17 +351,17 @@
 
         Now let's set up our prior scenes with the Director instead.
 
-    * /
+    */
 
     Director.addScene("first",scene1);
     Director.addScene("second",scene2);
 
     nextButton.onclick = () => {
-        Director.showScene("second");
+        Director.showScene("second", {transition:Director.fade});
     }
 
     backButton.onclick = () => {
-        Director.showScene("first");
+        Director.showScene("first", {transition:Director.fade});
     }
 
     /*
