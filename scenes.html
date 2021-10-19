@@ -15,7 +15,7 @@
     -->
     <script src="https://pixijs.download/release/pixi.js"></script>
     <script src="js/bezier.js"></script>
-    <script src="js/Animation.js"></script>
+    <script src="js/animate.js"></script>
     <script src="js/ui_elements.js"></script>
 </head>
 <body>
@@ -64,106 +64,7 @@
     // Let's create a few really boring scenes using Pixi.js Containers
     //
 
-    //Animation logic
-    // ANimation loop function
-    function animationLoop() {
-            let time = Date.now();
-
-            let bubbly1 = Math.sin(time / 500) * 5;
-            let bubbly2 = Math.cos(time / 500) * 5;
-            //let sway = Math.sin(time / 1500) * 10;
-
-            // Bubble animations
-            bubble1.y = bubbly1;
-            bubble2.y = bubbly2;
-            bubble3.y = bubbly2;
-            bubble4.y = bubbly1;
-
-            bubble5.y = bubbly2;
-            bubble6.y = bubbly1;
-            bubble7.y = bubbly1;
-            bubble8.y = bubbly2;
-
-            //setTimeout(animationLoop, 1000 / 30);
-            requestAnimationFrame(animationLoop);
-        }
-        animationLoop();
-
-        let Animation = {};
-
-        // Animation function
-        Animation.to = function (obj, end) {
-            return new Promise((resolve, reject) => {
-
-                // initial state for Animationd objects
-                var start = {
-                    x: obj.x,
-                    y: obj.y
-                }
-
-                // set defaults for duration and easing
-                if (end.duration == undefined) end.duration = 0;
-                if (end.easing == undefined) end.easing = Animation.linear;
-
-                // the start time of the animation
-                var startTime = Date.now();
-
-                // new animation loop
-                function loop() {
-
-                    // calculate the delta variable, time lapsed since start
-                    let ticker = Date.now() - startTime;
-                    let delta = ticker / end.duration;
-
-                    // if animation done, end
-                    if (delta >= 1) {
-                        obj.x = end.x;
-                        obj.y = end.y;
-                        console.log("done");
-                        resolve();
-                        return;
-                    }
-
-                    // interpolation function
-                    let lerp = (a, b, n) => {
-                        return (1 - n) * a + n * b;
-                    }
-                    // interpolate x and y coordinates, start loop
-                    obj.x = lerp(start.x, end.x, delta);
-                    obj.y = lerp(start.y, end.y, delta);
-                    obj.animationID = requestAnimationFrame(loop);
-                }
-
-                // clear animation ID to avoid competing loops
-                cancelAnimationFrame(obj.animationID);
-                // begin loop proper
-                loop();
-                // end promise
-            });
-
-        };
-
-        // ease functions
-        Animation.linear = x => x;
-        // ease in
-        Animation.easeIn = x => x * x;
-        // ease out
-        Animation.easeOut = x => 1 - (1 - x) * (1 - x);
-        // ease inout
-        Animation.easeInOut = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
-
-        // pause animation function
-        function pause(ms) {
-            return new Promise((resolve, reject) => {
-                setTimeout(resolve, ms);
-            });
-        }
-
-        // stop animation function
-        Animation.stop = function (obj) {
-            cancelAnimationFrame(obj).animationID;
-        }
-        
+    
     //SCENE 1
     let scene1 = new PIXI.Container();
 
@@ -283,6 +184,7 @@
     //Now let's add the first scene to the stage
     app.stage.addChild(scene1);
 
+    
 
     /*
 
@@ -316,7 +218,7 @@
 
     // nextButton.onclick = async () => {
     //     //Fade out current scene
-    //     await Animation.to(scene1,{alpha:0,duration:500});
+    //     await Animate.to(scene1,{alpha:0,duration:500});
     //     //Remove it from stage
     //     app.stage.removeChild(scene1);
     //     //Set next scene to zero alpha
@@ -324,14 +226,14 @@
     //     //Add it to the stage
     //     app.stage.addChild(scene2);
     //     //Fade it in
-    //     await Animation.to(scene2,{alpha:1,duration:500});
+    //     await Animate.to(scene2,{alpha:1,duration:500});
     //     //Reset the off-stage scene's alpha back
     //     scene1.alpha = 1;
     // }
 
     // backButton.onclick = async () => {
     //     //Fade out current scene
-    //     await Animation.to(scene2,{alpha:0,duration:500});
+    //     await Animate.to(scene2,{alpha:0,duration:500});
     //     //Remove it from stage
     //     app.stage.removeChild(scene2);
     //     //Set next scene to zero alpha
@@ -339,7 +241,7 @@
     //     //Add it to the stage
     //     app.stage.addChild(scene1);
     //     //Fade it in
-    //     await Animation.to(scene1,{alpha:1,duration:500});
+    //     await Animate.to(scene1,{alpha:1,duration:500});
     //     //Reset the off-stage scene's alpha back
     //     scene2.alpha = 1;
     // }
@@ -356,12 +258,12 @@
     //     app.stage.addChild(scene2);
 
     //     //Fade out current scene as it moves off to the left
-    //     Animation.to(scene1,{x:-app.view.width,
-    //                             duration:500,easing:Animation.easeInOut});
+    //     Animate.to(scene1,{x:-app.view.width,
+    //                             duration:500,easing:Animate.easeInOut});
     //     //WHILE bringing in the next scene
-    //     await Animation.to(scene2,{x:0,
-    //                             duration:500,easing:Animation.easeInOut});
-    //     //We only "await" on the last animation, so that they both move at the same time
+    //     await Animate.to(scene2,{x:0,
+    //                             duration:500,easing:Animate.easeInOut});
+    //     //We only "await" on the last Animate, so that they both move at the same time
 
     //     //Remove the old scene from stage
     //     app.stage.removeChild(scene1);
@@ -375,12 +277,12 @@
     //     app.stage.addChild(scene1);
 
     //     //Fade out current scene as it moves off to the left
-    //     Animation.to(scene2,{x:app.view.width,
-    //                             duration:500,easing:Animation.easeInOut});
+    //     Animate.to(scene2,{x:app.view.width,
+    //                             duration:500,easing:Animate.easeInOut});
     //     //WHILE bringing in the next scene
-    //     await Animation.to(scene1,{x:0,
-    //                             duration:500,easing:Animation.easeInOut});
-    //     //We only "await" on the last animation, so that they both move at the same time
+    //     await Animate.to(scene1,{x:0,
+    //                             duration:500,easing:Animate.easeInOut});
+    //     //We only "await" on the last Animate, so that they both move at the same time
 
     //     //Remove the old scene from stage
     //     app.stage.removeChild(scene2);
@@ -458,7 +360,7 @@
             if (params.duration == undefined) params.duration = 500;
 
             //Fade out current scene
-            await Animation.to(currentScene,{alpha:0,duration:params.duration/2});
+            await Animate.to(currentScene,{alpha:0,duration:params.duration/2});
             //Remove it from stage
             app.stage.removeChild(currentScene);
             //Set next scene to zero alpha
@@ -466,7 +368,7 @@
             //Add it to the stage
             app.stage.addChild(nextScene);
             //Fade it in
-            await Animation.to(nextScene,{alpha:1,duration:params.duration/2});
+            await Animate.to(nextScene,{alpha:1,duration:params.duration/2});
             //Reset the off-stage scene's alpha back
             currentScene.alpha = 1;
         },
@@ -517,14 +419,14 @@
             app.stage.addChild(nextScene);
 
             //Slide out current scene as it moves off
-            Animation.to(currentScene,{   x:currentSceneEndX, y:currentSceneEndY,
+            Animate.to(currentScene,{   x:currentSceneEndX, y:currentSceneEndY,
                                         duration:params.duration,
-                                        easing:Animation.easeInOut});
+                                        easing:Animate.easeInOut});
             //WHILE bringing in the next scene
-            await Animation.to(nextScene,{x:0, y:0,
+            await Animate.to(nextScene,{x:0, y:0,
                                         duration:params.duration,
-                                        easing:Animation.easeInOut});
-            //We only "await" on the last animation, so that they both move at the same time
+                                        easing:Animate.easeInOut});
+            //We only "await" on the last Animate, so that they both move at the same time
 
             //Remove the old scene from stage
             app.stage.removeChild(currentScene);
@@ -568,7 +470,7 @@
         
         (They will help.)
         
-        Each fish should be Animationd on their profile page in their own unique way.
+        Each fish should be Animated on their profile page in their own unique way.
         
         There should be – at least – a title screen, and one screen for each fish but bonus points for adding on more.
 
@@ -577,6 +479,31 @@
         Add in a new transition of your choice and implement it on one of your transitions.
 
     */
+
+    //Animate logic
+    // Animate loop function
+    function AnimateLoop() {
+            let time = Date.now();
+
+            let bubbly1 = Math.sin(time / 500) * 5;
+            let bubbly2 = Math.cos(time / 500) * 5;
+            //let sway = Math.sin(time / 1500) * 10;
+
+            // Bubble Animates
+            bubble1.y = bubbly1;
+            bubble2.y = bubbly2;
+            bubble3.y = bubbly2;
+            bubble4.y = bubbly1;
+
+            bubble5.y = bubbly2;
+            bubble6.y = bubbly1;
+            bubble7.y = bubbly1;
+            bubble8.y = bubbly2;
+
+            //setTimeout(AnimateLoop, 1000 / 30);
+            requestAnimationFrame(AnimateLoop);
+        }
+        AnimateLoop();
 
 </script>
     
