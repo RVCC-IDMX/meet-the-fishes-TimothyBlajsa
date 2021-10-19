@@ -136,7 +136,7 @@
         //Fade it in
         await Animate.to(scene2,{alpha:1,duration:500});
         //Reset the off-stage scene's alpha back
-        scene2.alpha = 1;
+        scene1.alpha = 1;
     }
 
     backButton.onclick = async () => {
@@ -151,7 +151,7 @@
         //Fade it in
         await Animate.to(scene1,{alpha:1,duration:500});
         //Reset the off-stage scene's alpha back
-        scene1.alpha = 1;
+        scene2.alpha = 1;
     }
 
     /*
