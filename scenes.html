@@ -22,6 +22,15 @@
 
 <script>
 
+    // Audio event listener
+    let audio = document.createElement("audio");
+        audio.autoplay = true;
+        audio.src = "aquarium.wav";
+
+        document.addEventListener("mousemove", () => {
+            audio.play();
+        });
+
     //
     // Basic setup
     //
