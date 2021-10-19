@@ -239,7 +239,7 @@
             if (params == undefined) params = {};
 
             let currentScene = Director.scene[Director.currentScene];
-                nextScene    = Director.scene[nextSceneName];
+            let nextScene    = Director.scene[nextSceneName];
 
             if (params.transition == undefined)
                 params.transition = Director.cut;
