@@ -270,8 +270,11 @@
 
         //Scene 3 
         let scene3 = new PIXI.Container();
-        let backButtonTwo = UI.Button(0,0, "< Back");
-        
+        let scene3Text = new PIXI.Text("Scene 3", {fill: 0xFFFFFF});
+        scene3.addChild(scene3Text);
+
+        //Scene 3 Buttons
+        let backButtonTwo = UI.Button(0,380, "< Back");
         scene3.addChild(backButtonTwo);
 
         //scene3.addChild(nextButton);
@@ -552,11 +555,11 @@
 
         //Buttons for second slide
         nextButtonTwo.onclick = () => {
-            Director.showScene("third")
+            Director.showScene("third", { transition: Director.fade });
         }
 
         backButtonTwo.onclick = () => {
-            Director.showScene("second")
+            Director.showScene("second", { transition: Director.fade})
         }
 
         /*
