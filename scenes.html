@@ -549,6 +549,23 @@
             sway2();
         }
         sway2();
+
+        // animate fish2, cycle random tint colors
+        async function idleSwim2() {
+            await Animate.to(fish2, {
+                x: 30, y: 20,
+                duration: 2000,
+                easing: Animate.easeInOut
+            });
+            fish2.tint = (Math.floor(Math.random() * 0xFFFFFF));
+            await Animate.to(fish2, {
+                x: 30, y: 60,
+                duration: 2000,
+                easing: Animate.easeInOut
+            });
+            idleSwim2();
+        }
+        idleSwim2();
     </script>
 
 </body>
