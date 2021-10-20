@@ -241,7 +241,7 @@
         scene2.addChild(backButton);
 
         //And let's also add some text to tell us which scene we're on
-        let scene2Text = new PIXI.Text("Scene 2", { fill: 0xFFFFFF });
+        let scene2Text = new PIXI.Text("Rainbow Fish", { fontFamily: 'Sarif', fill: 0xFFFFFF });
 
         //And place it into the scene
         scene2.addChild(scene2Text);
@@ -252,10 +252,19 @@
 
         //Scene Two Content
 
-        let testFish = new PIXI.Sprite.from("img/minnow.png");
-        scene2.addChild(testFish);
-        let testFishText = new PIXI.Text("This is the test fish", {fill: 0xFFFFFF});
-        testFishText.x = 250;
+        let fish1Bubble = new PIXI.Graphics()
+        fish1Bubble.beginFill(0xEEEEEE);
+        fish1Bubble.drawCircle(0,0,125,125);
+        fish1Bubble.alpha = .2;
+        fish1Bubble.x = 125;
+        fish1Bubble.y = 250;
+        scene2.addChild(fish1Bubble)
+        
+        let testFishText = new UI.Button(0,0, "This is sample\ntext\nof a fish");
+        testFishText.y = 215;
+        testFishText.x = 275;
+        testFishText.interactive = false;
+        
         scene2.addChild(testFishText);
 
         //SCene two buttons
