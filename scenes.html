@@ -254,8 +254,12 @@
         scene2.addChild(testFishText);
 
         //SCene two buttons
-        let nextButtonTwo = UI.Button(450,380, "Next >");
+        let nextButtonTwo = UI.Button(440,380, "Next >");
+        
         scene2.addChild(nextButtonTwo);
+
+        // nextButton.x = app.view.width - nextButton.width;
+        // nextButton.y = app.view.height - nextButton.height;
 
         //Scene 3 
         let scene3 = new PIXI.Container();
@@ -265,7 +269,7 @@
         //Scene 3 Buttons
         let backButtonTwo = UI.Button(0,380, "< Back");
         scene3.addChild(backButtonTwo);
-        let nextButtonThree = UI.Button(450,380, "Next >");
+        let nextButtonThree = UI.Button(440,380, "Next >");
         scene3.addChild(nextButtonThree);
 
 
