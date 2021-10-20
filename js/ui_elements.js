@@ -39,6 +39,10 @@ var UI = {
             buttonText.anchor.set(.5,.5);
             buttonText.x = 100;
             buttonText.y = 50;
+            buttonText.style.fontFamily = 'Sarif';
+            buttonText.style.dropShadow = true;
+            buttonText.style.dropShadowDistance = 1.5;
+            buttonText.style.dropShadowColor = '0xabdbe3';
             ourButton.addChild(buttonText);
 
             ourButton.label = buttonText;
