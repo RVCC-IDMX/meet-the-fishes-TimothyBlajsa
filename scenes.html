@@ -246,7 +246,11 @@
 
         let testFish = new PIXI.Sprite.from("img/minnow.png");
         scene2.addChild(testFish);
-
+        let testFishText = new PIXI.Text("This is the test fish", {fill: 0xFFFFFF});
+        testFishText.x = 250;
+        scene2.addChild(testFishText);
+        let nextButtonTwo = UI.Button(450,380, "Next >");
+        scene2.addChild(nextButtonTwo);
         //app.stage.addChild(fish1Prof)
         // // animate fish1
         // async function idleSwim1() {
@@ -264,6 +268,13 @@
         // }
         // idleSwim1();
 
+        //Scene 3 
+        let scene3 = new PIXI.Container();
+        let backButtonTwo = UI.Button(0,0, "< Back");
+        
+        scene3.addChild(backButtonTwo);
+
+        //scene3.addChild(nextButton);
         /*
     
             So now we have two scenes set up, and the first scene on stage.
@@ -529,6 +540,7 @@
 
         Director.addScene("first", scene1);
         Director.addScene("second", scene2);
+        Director.addScene("third", scene3);
 
         nextButton.onclick = () => {
             Director.showScene("second", { transition: Director.fade });
@@ -536,6 +548,10 @@
 
         backButton.onclick = () => {
             Director.showScene("first", { transition: Director.fade });
+        }
+
+        backButtonTwo.onclick = () => {
+            Director.showScene("second")
         }
 
         /*
