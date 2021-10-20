@@ -505,6 +505,52 @@
         }
         AnimateLoop();
 
+// animate background school of fish, get larger as pass right
+async function backgroundFish() {
+            await Animate.to(school, {
+                x: -1000, y: 55,
+                duration: 3000,
+            });
+            await school.scale.set(-.25);
+            await school.alpha == .95;
+            await Animate.to(school, {
+                x: 2000, y: 200,
+                duration: 2100,
+            });
+            await school.scale.set(.10);
+            backgroundFish();
+        }
+        backgroundFish();
+
+        // animate kelp
+        async function sway() {
+            await Animate.to(kelp1, {
+                x: 50, y: 0,
+                duration: 5000,
+                easing: Animate.easeInOut
+            });
+            await Animate.to(kelp1, {
+                x: 20, y: 0,
+                duration: 5000,
+                easing: Animate.easeInOut
+            });
+            sway();
+        }
+        sway();
+        async function sway2() {
+            await Animate.to(kelp2, {
+                x: 50, y: 0,
+                duration: 4000,
+                easing: Animate.easeInOut
+            });
+            await Animate.to(kelp2, {
+                x: 30, y: 0,
+                duration: 4000,
+                easing: Animate.easeInOut
+            });
+            sway2();
+        }
+        sway2();
 </script>
     
 </body>
