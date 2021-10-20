@@ -544,23 +544,25 @@
             Director.showScene("second", { transition: Director.fade });
         }
 
+        //Buttons for second slide
         backButton.onclick = () => {
             Director.showScene("first", { transition: Director.fade });
         }
 
-        //Buttons for second slide
         nextButtonTwo.onclick = () => {
             Director.showScene("third", { transition: Director.fade });
         }
 
+        //Buttons for third slide
         backButtonTwo.onclick = () => {
             Director.showScene("second", { transition: Director.fade})
         }
 
-        //Buttons for third slide
         nextButtonThree.onclick = () => {
             Director.showScene("fourth", { transition: Director.fade});
         }
+
+        //Buttons for fourth slide
         backButtonThree.onclick = () => {
             Director.showScene("third", { transition: Director.fade});
         }
