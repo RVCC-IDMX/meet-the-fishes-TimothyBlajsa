@@ -260,8 +260,18 @@
         //Scene 3 Buttons
         let backButtonTwo = UI.Button(0,380, "< Back");
         scene3.addChild(backButtonTwo);
+        let nextButtonThree = UI.Button(450,380, "Next >");
+        scene3.addChild(nextButtonThree);
 
-        //scene3.addChild(nextButton);
+
+        //Scene 4
+        let scene4 = new PIXI.Container();
+        let scene4Text = new PIXI.Text("Scene 4", {fill: 0xFFFFFF});
+        scene4.addChild(scene4Text);
+
+        //Scene 4 Buttons
+        let backButtonThree = UI.Button(0,380, "< Back");
+        scene4.addChild(backButtonThree);
         /*
     
             So now we have two scenes set up, and the first scene on stage.
@@ -528,6 +538,7 @@
         Director.addScene("first", scene1);
         Director.addScene("second", scene2);
         Director.addScene("third", scene3);
+        Director.addScene("fourth", scene4);
 
         nextButton.onclick = () => {
             Director.showScene("second", { transition: Director.fade });
@@ -544,6 +555,14 @@
 
         backButtonTwo.onclick = () => {
             Director.showScene("second", { transition: Director.fade})
+        }
+
+        //Buttons for third slide
+        nextButtonThree.onclick = () => {
+            Director.showScene("fourth", { transition: Director.fade});
+        }
+        backButtonThree.onclick = () => {
+            Director.showScene("third", { transition: Director.fade});
         }
 
         /*
