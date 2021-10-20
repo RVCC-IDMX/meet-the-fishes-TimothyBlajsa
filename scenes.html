@@ -550,6 +550,11 @@
             Director.showScene("first", { transition: Director.fade });
         }
 
+        //Buttons for second slide
+        nextButtonTwo.onclick = () => {
+            Director.showScene("third")
+        }
+
         backButtonTwo.onclick = () => {
             Director.showScene("second")
         }
