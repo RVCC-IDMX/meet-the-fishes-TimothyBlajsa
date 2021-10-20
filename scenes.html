@@ -72,6 +72,7 @@
 
         //Using our button object let's create a "next" button.
         let nextButton = UI.Button(0, 0, "Next >");
+        nextButton.radius = .75;
 
         //Let's place it in the bottom right-hand corner of the screen (regardless of size)
         nextButton.x = app.view.width - nextButton.width;
@@ -244,11 +245,15 @@
         //Now let's add the first scene to the stage
         app.stage.addChild(scene1);
 
+        //Scene Two Content
+
         let testFish = new PIXI.Sprite.from("img/minnow.png");
         scene2.addChild(testFish);
         let testFishText = new PIXI.Text("This is the test fish", {fill: 0xFFFFFF});
         testFishText.x = 250;
         scene2.addChild(testFishText);
+
+        //SCene two buttons
         let nextButtonTwo = UI.Button(450,380, "Next >");
         scene2.addChild(nextButtonTwo);
 

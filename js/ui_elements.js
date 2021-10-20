@@ -30,7 +30,7 @@ var UI = {
 
         var buttonBody = new PIXI.Graphics();
             buttonBody.beginFill(params.backgroundColor);
-            buttonBody.drawRect(0, 0, 200, 100);
+            buttonBody.drawRoundedRect(0, 0, 200, 100);
             ourButton.addChild(buttonBody);
 
             ourButton.body = buttonBody;
