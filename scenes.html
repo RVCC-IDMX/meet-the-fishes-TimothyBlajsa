@@ -67,7 +67,7 @@
         //
 
 
-        //SCENE 1
+        //SCENE 1 acts as base 
         let scene1 = new PIXI.Container();
 
         //Using our button object let's create a "next" button.
@@ -87,6 +87,40 @@
         scene1.addChild(scene1Text);
 
         // begin sprites for base state
+
+        // My First Sprite
+        let fish1 = PIXI.Sprite.from("img/bigfish.png");
+
+        // Change sprite coordinates
+        fish1.x = 420;
+        fish1.y = 0;
+
+        // Change sprite size
+        fish1.scale.set(.095);
+
+        // Add it to the stage
+        app.stage.addChild(fish1);
+
+        // My Second Sprite
+        let fish2 = PIXI.Sprite.from("img/smallfish.png");
+
+        // Change sprite2 size
+        fish2.scale.set(.07);
+        fish2.x = 30;
+
+        // Add it to the stage
+        app.stage.addChild(fish2);
+
+        // My third fish sprite
+        let fish3 = PIXI.Sprite.from("img/betta.png");
+        fish3.scale.set(.1);
+        fish3.x = 350;
+        fish3.y = 50;
+        fish3.tint = 0x2e3f6b;
+        app.stage.addChild(fish3);
+
+        
+
         // My kelp sprite
         let kelp1 = PIXI.Sprite.from("img/kelp.png");
         kelp1.scale.set(.5);
@@ -121,6 +155,13 @@
         coral2.x = -400;
         coral2.tint = 0x5676c7;
         app.stage.addChild(coral2);
+
+        // My container for the first two fish sprites
+        var my_container = new PIXI.Container();
+        my_container.addChild(fish1);
+        my_container.addChild(fish2);
+        my_container.y = 100;
+        app.stage.addChild(my_container);
 
         // My sprite for the bubbles
         let bubble1 = new PIXI.Sprite.from("img/bubble.png");
@@ -162,6 +203,23 @@
         bubble8.x = 610;
         app.stage.addChild(bubble8);
 
+        //SCENE 1 Specific animations
+        // animate fish1
+        async function idleSwim1() {
+            await Animate.to(fish1, {
+                x: 420, y: 20,
+                duration: 3000,
+                easing: Animate.easeInOut
+            });
+            await Animate.to(fish1, {
+                x: 420, y: 50,
+                duration: 2000,
+                easing: Animate.easeInOut
+            });
+            idleSwim1();
+        }
+        idleSwim1();
+
 
         //SCENE 2
         let scene2 = new PIXI.Container();
@@ -186,7 +244,25 @@
         //Now let's add the first scene to the stage
         app.stage.addChild(scene1);
 
+        let testFish = new PIXI.Sprite.from("img/minnow.png");
+        scene2.addChild(testFish);
 
+        //app.stage.addChild(fish1Prof)
+        // // animate fish1
+        // async function idleSwim1() {
+        //     await Animate.to(fish1, {
+        //         x: 220, y: 20,
+        //         duration: 3000,
+        //         easing: Animate.easeInOut
+        //     });
+        //     await Animate.to(fish1, {
+        //         x: 220, y: 50,
+        //         duration: 2000,
+        //         easing: Animate.easeInOut
+        //     });
+        //     idleSwim1();
+        // }
+        // idleSwim1();
 
         /*
     
