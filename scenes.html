@@ -315,8 +315,32 @@
 
         //Scene 4
         let scene4 = new PIXI.Container();
-        let scene4Text = new PIXI.Text("Scene 4", {fill: 0xFFFFFF});
+        let scene4Text = new PIXI.Text("Silver Fish", {fill: 0xFFFFFF});
         scene4.addChild(scene4Text);
+
+        //scene mask
+        let sceneFourMask = new PIXI.Graphics();
+        sceneFourMask.beginFill(0xEEEEEE);
+        sceneFourMask.drawCircle(0,0,200,200);
+        sceneFourMask.alpha = .8;
+        sceneFourMask.x = 125;
+        sceneFourMask.y = 250;
+        scene4.addChild(sceneFourMask)
+
+        let sceneFourMaskTwo = new PIXI.Graphics();
+        sceneFourMaskTwo.beginFill(0xEEEEEE);
+        sceneFourMaskTwo.drawCircle(0,0,125,125);
+        sceneFourMaskTwo.alpha = .75;
+        sceneFourMaskTwo.x = 325;
+        sceneFourMaskTwo.y = 25;
+        scene4.addChild(sceneFourMaskTwo)
+        
+        let fish3Text = new PIXI.Text('This is the Silver Fish \nA fish that looks like a \nminiature tuna at times, \nit likes when the user \nfeeds it food \n', {fill: 0x000000});
+        fish3Text.x = 35;
+        fish3Text.y = 150;
+        fish3Text.style.fontFamily = 'Sans-Sarif';
+        
+        scene4.addChild(fish3Text);
 
         //Scene 4 Buttons
         let backButtonThree = UI.Button(0,380, "< Back");
