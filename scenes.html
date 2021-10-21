@@ -259,9 +259,6 @@
         // Add Title Text to Scene 2
         scene2.addChild(scene2Text);
 
-
-        
-
         // Scene 2 Content
 
         // scene mask
@@ -274,13 +271,13 @@
         scene2.addChild(sceneTwoMask)
 
         // scene 2 body content
-        let testFishText = new PIXI.Text('This is the Rainbow Fish \nIt likes to change colors \nrandomly and according \nto specific time intervals. \nSome say it tastes like \nskittles candy', { fill: 0x000000 });
-        testFishText.x = 325;
-        testFishText.y = 75;
-        testFishText.style.fontFamily = 'Sans-Sarif';
+        let rainbowFishText = new PIXI.Text('This is the Rainbow Fish \nIt likes to change colors \nrandomly and according \nto specific time intervals. \nSome say it tastes like \nskittles candy', { fill: 0x000000 });
+        rainbowFishText.x = 325;
+        rainbowFishText.y = 75;
+        rainbowFishText.style.fontFamily = 'Sans-Sarif';
 
         // add body content to scene 2
-        scene2.addChild(testFishText);
+        scene2.addChild(rainbowFishText);
 
         // SCene two buttons
         let nextButtonTwo = UI.Button(440, 380, "Next >");
