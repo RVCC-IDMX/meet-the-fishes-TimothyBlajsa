@@ -6,8 +6,11 @@ This new version includes an interactive slideshow, profiling a different fish o
 - Rainbow Fish
 - Betta Fish
 - Silver Fish
+
 The above scenes include various animations, in addition to their base state.
 Each scene is navigated with the inclusion of back and next buttons.
+
+The background remains the same from the previous iteration, including animated bubbles, sound, and kelp.
 ## Author Testimony
 ### Resources
 #### Images
