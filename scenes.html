@@ -378,23 +378,27 @@
         frostedGlass.alpha = .25;
         scene5.addChild(frostedGlass);
 
+        // Make first web
         let webOne = PIXI.Sprite.from("img/web.png");
         webOne.scale.set(.5);
         webOne.x = 25;
         webOne.tint = 0xFFFFFF;
         scene5.addChild(webOne)
 
+        // Make second web
         let webTwo = PIXI.Sprite.from("img/web.png");
         webTwo.scale.set(.25);
         webTwo.x = -65;
         scene5.addChild(webTwo);
 
+        // Make ghost sprite
         let ghost = PIXI.Sprite.from("img/ghosty.png");
         ghost.scale.set(.25);
         ghost.x = 75;
         ghost.y = -25;
         scene5.addChild(ghost);
 
+        // Make ghost speech bubble and text for it
         let boo = new PIXI.Graphics();
         boo.beginFill(0xFFFFFF);
         boo.drawRoundedRect(475, 200, 150, 100);
