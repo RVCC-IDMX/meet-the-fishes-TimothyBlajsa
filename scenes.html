@@ -453,9 +453,11 @@
                 
                 app.stage.removeChild(currentScene);
                 app.stage.filters = [new PIXI.filters.BlurFilter()];
+                await pause(120)
                 app.stage.addChild(nextScene);
-                await pause(130)
+                await pause(60)
                 app.stage.filters = false;
+
                 await Animate.to(nextScene, {alpha:1,duration:params.duration/2});
                 currentScene.alpha = 1;
 
