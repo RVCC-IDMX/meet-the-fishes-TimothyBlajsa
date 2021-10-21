@@ -796,6 +796,7 @@
             });
         }
 
+        // Animate ghost floating
         async function floatGhost() {
             await Animate.to(ghost, {
                 x: 75, y: -30,
@@ -807,9 +808,27 @@
                 duration: 2000,
                 easing: Animate.easeInOut
             })
-            floatGhost()
+            floatGhost();
         }
-        floatGhost()
+        floatGhost();
+
+        // Make ghost interactive
+        ghost.interactive = true;
+
+        // On pointerdown, call talk function, starting state of boo and booText
+        ghost.on('pointerdown', talk);
+        boo.visible = false;
+        booText.visible = false;
+
+        // talk function makes speech bubble appear and then dissappear
+        async function talk() {
+            boo.visible = true;
+            booText.visible = true;
+            await pause(1500);
+            boo.visible = false;
+            booText.visible = false;
+        }
+        
 
     </script>
 
