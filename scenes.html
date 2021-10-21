@@ -395,6 +395,14 @@
         ghost.y = -25;
         scene5.addChild(ghost);
 
+        let boo = new PIXI.Graphics();
+        boo.beginFill(0xFFFFFF);
+        boo.drawRoundedRect(475,200,150,100);
+        scene5.addChild(boo);
+        let booText = new PIXI.Text("BOO!", {fill:0x000000});
+        booText.x = 515;
+        booText.y = 230;
+        scene5.addChild(booText);
         
 
         // Scene 5 buttons
