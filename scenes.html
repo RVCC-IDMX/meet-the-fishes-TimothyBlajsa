@@ -109,9 +109,6 @@
         // Add it to the stage
         app.stage.addChild(fish1);
         
-
-        
-
         // My Second Sprite
         let fish2 = PIXI.Sprite.from("img/smallfish.png");
 
@@ -129,8 +126,6 @@
         fish3.y = 50;
         fish3.tint = 0x2e3f6b;
         app.stage.addChild(fish3);
-
-
 
         // My kelp sprite
         let kelp1 = PIXI.Sprite.from("img/kelp.png");
@@ -214,7 +209,9 @@
         bubble8.x = 610;
         app.stage.addChild(bubble8);
 
-        //SCENE 1 Specific animations
+        //Begin SCENE Content
+
+        // SCENE 1 Specific animations
         // animate fish1
         async function idleSwim1() {
             await Animate.to(fish1, {
@@ -240,33 +237,34 @@
         }
         idleSwim1();
 
+        // Add scene 1 to stage
+        app.stage.addChild(scene1);
 
-        //SCENE 2
+        // SCENE 2 structure
         let scene2 = new PIXI.Container();
 
-        //Using our button object let's create a "next" button.
+        // Make back button UI
         let backButton = UI.Button(0, 0, "< Back");
 
-        //Let's place it in the bottom left-hand corner of the screen (regardless of size)
+        // Place button in lower-right corner, works for any size
         backButton.x = 0;
         backButton.y = app.view.height - backButton.height;
 
-        //And place it into the scene
+        // Add back button to Scene 2
         scene2.addChild(backButton);
 
-        //And let's also add some text to tell us which scene we're on
+        // Scene 2 Title Text
         let scene2Text = new PIXI.Text("Rainbow Fish", { fontFamily: 'Sarif', fill: 0xFFFFFF });
 
-        //And place it into the scene
+        // Add Title Text to Scene 2
         scene2.addChild(scene2Text);
 
 
-        //Now let's add the first scene to the stage
-        app.stage.addChild(scene1);
+        
 
-        //Scene Two Content
+        // Scene 2 Content
 
-        //scene mask
+        // scene mask
         let sceneTwoMask = new PIXI.Graphics();
         sceneTwoMask.beginFill(0xEEEEEE);
         sceneTwoMask.drawCircle(0, 0, 275, 275);
@@ -275,28 +273,28 @@
         sceneTwoMask.y = 75;
         scene2.addChild(sceneTwoMask)
 
+        // scene 2 body content
         let testFishText = new PIXI.Text('This is the Rainbow Fish \nIt likes to change colors \nrandomly and according \nto specific time intervals. \nSome say it tastes like \nskittles candy', { fill: 0x000000 });
         testFishText.x = 325;
         testFishText.y = 75;
         testFishText.style.fontFamily = 'Sans-Sarif';
 
+        // add body content to scene 2
         scene2.addChild(testFishText);
 
-        //SCene two buttons
+        // SCene two buttons
         let nextButtonTwo = UI.Button(440, 380, "Next >");
-
         scene2.addChild(nextButtonTwo);
 
-        // nextButton.x = app.view.width - nextButton.width;
-        // nextButton.y = app.view.height - nextButton.height;
-
-        //Scene 3 
+        // Scene 3 structure
         let scene3 = new PIXI.Container();
+
+        // Scene 3 Title Text
         let scene3Text = new PIXI.Text("Betta Fish", { fill: 0xFFFFFF });
         scene3Text.x = 510;
         scene3.addChild(scene3Text);
 
-        //scene mask
+        // scene mask
         let sceneThreeMask = new PIXI.Graphics();
         sceneThreeMask.beginFill(0xEEEEEE);
         sceneThreeMask.drawCircle(0, 0, 275, 275);
@@ -305,6 +303,7 @@
         sceneThreeMask.y = 125;
         scene3.addChild(sceneThreeMask)
 
+        // scene mask two
         let sceneThreeMaskTwo = new PIXI.Graphics();
         sceneThreeMaskTwo.beginFill(0xEEEEEE);
         sceneThreeMaskTwo.drawCircle(0, 0, 125, 125);
@@ -313,11 +312,13 @@
         sceneThreeMaskTwo.y = 225;
         scene3.addChild(sceneThreeMaskTwo)
 
+        // scene 3 body text
         let fish2Text = new PIXI.Text('This is the Betta Fish \nA perfect digital replica \nof my own real betta, \nit spends time making \nbubble nests and resting \non its leaf', { fill: 0x000000 });
         fish2Text.x = 50;
         fish2Text.y = 75;
         fish2Text.style.fontFamily = 'Sans-Sarif';
 
+        // add body text to scene 3
         scene3.addChild(fish2Text);
 
         //Scene 3 Buttons
@@ -326,9 +327,10 @@
         let nextButtonThree = UI.Button(440, 380, "Next >");
         scene3.addChild(nextButtonThree);
 
-
-        //Scene 4
+        //Scene 4 structure
         let scene4 = new PIXI.Container();
+
+        // scene 4 Title Text
         let scene4Text = new PIXI.Text("Silver Fish", { fill: 0xFFFFFF });
         scene4.addChild(scene4Text);
 
@@ -341,6 +343,7 @@
         sceneFourMask.y = 250;
         scene4.addChild(sceneFourMask)
 
+        // scene mask two
         let sceneFourMaskTwo = new PIXI.Graphics();
         sceneFourMaskTwo.beginFill(0xEEEEEE);
         sceneFourMaskTwo.drawCircle(0, 0, 125, 125);
@@ -349,21 +352,23 @@
         sceneFourMaskTwo.y = 25;
         scene4.addChild(sceneFourMaskTwo)
 
+        // scene 4 Body Text
         let fish3Text = new PIXI.Text('This is the Silver Fish \nA fish that looks like a \nminiature tuna at times, \nit likes when the user \nfeeds it food; we ran\nout so now it \njust wags', { fill: 0x000000 });
         fish3Text.x = 35;
         fish3Text.y = 150;
         fish3Text.style.fontFamily = 'Sans-Sarif';
 
+        // Add body text to scene 4
         scene4.addChild(fish3Text);
 
         //Scene 4 Buttons
         let backButtonThree = UI.Button(0, 380, "< Back");
         scene4.addChild(backButtonThree);
 
-        //Let's call it the Director. It calls the shots.
+        //Director object to manage scenes
         var Director = {
 
-            //It holds a list of scenes
+            //Object to hold list of scenes
             scene: {},
 
             //Add a scene to the list
@@ -382,10 +387,10 @@
 
             },
 
-            //And it keeps track of the current one
+            //Keep track of the current scene
             currentScene: null,
 
-            //And a function to change scenes
+            //Change scene function
             showScene: async (nextSceneName, params) => {
 
                 if (params == undefined) params = {};
@@ -403,7 +408,7 @@
             },
 
             //
-            //Transitions
+            //Transitions for changing scenes
             //
 
             //Cut (no transition)
@@ -433,23 +438,33 @@
                 currentScene.alpha = 1;
             },
 
+            //Pull focus between
             blink: async (currentScene, nextScene, params) => {
+
+                //Check duration
                 if (params == undefined) params = {};
                 if (params.duration == undefined) params.duration = 500;
 
-                await Animate.to(currentScene, {alpha:0,duration: params.duration / 2});
-                
+                //Unfocus current scene
+                await Animate.to(currentScene, { alpha: 0, duration: params.duration / 2 });
+                //Remove it from stage
                 app.stage.removeChild(currentScene);
+                //Apply Blur Filter to unfocus
                 app.stage.filters = [new PIXI.filters.BlurFilter()];
+                //Wait
                 await pause(120)
+                //Add it to the stage
                 app.stage.addChild(nextScene);
+                //Wait
                 await pause(60)
+                //Remove Blur Filter to refocus
                 app.stage.filters = false;
-
-                await Animate.to(nextScene, {alpha:1,duration:params.duration/2});
+                //Focus in to new scene
+                await Animate.to(nextScene, { alpha: 1, duration:params.duration / 2 });
+                //Reset the off-stage scene's alpha back
                 currentScene.alpha = 1;
-
             },
+
             //Slide in a particular direction
             swipe: async (currentScene, nextScene, params) => {
 
@@ -520,40 +535,38 @@
 
         };
 
-        /*
-    
-            Now let's set up our prior scenes with the Director instead.
-    
-        */
-
+        //Use Director setup to manage scenes alongside button clicks
         Director.addScene("first", scene1);
         Director.addScene("second", scene2);
         Director.addScene("third", scene3);
         Director.addScene("fourth", scene4);
 
+        //First next button, goes to second scene
         nextButton.onclick = () => {
             Director.showScene("second", { transition: Director.blink });
         }
 
-        //Buttons for second slide
+        //Buttons for second slide, goes to first scene
         backButton.onclick = () => {
             Director.showScene("first", { transition: Director.blink });
         }
 
+        //Next button, goes to third scene
         nextButtonTwo.onclick = () => {
             Director.showScene("third", { transition: Director.blink });
         }
 
-        //Buttons for third slide
+        //Buttons for third slide, goes to second scene
         backButtonTwo.onclick = () => {
             Director.showScene("second", { transition: Director.blink })
         }
 
+        //Next button, goes to fourth scene
         nextButtonThree.onclick = () => {
             Director.showScene("fourth", { transition: Director.blink });
         }
 
-        //Buttons for fourth slide
+        //Buttons for fourth slide, goes to third scene
         backButtonThree.onclick = () => {
             Director.showScene("third", { transition: Director.blink });
         }
@@ -582,14 +595,14 @@
     
         */
 
-        //Animate logic
+        // Animate logic, for background animations
+        
         // Animate loop function
         function AnimateLoop() {
             let time = Date.now();
 
             let bubbly1 = Math.sin(time / 500) * 5;
             let bubbly2 = Math.cos(time / 500) * 5;
-            //let sway = Math.sin(time / 1500) * 10;
 
             // Bubble Animates
             bubble1.y = bubbly1;
@@ -602,7 +615,6 @@
             bubble7.y = bubbly1;
             bubble8.y = bubbly2;
 
-            //setTimeout(AnimateLoop, 1000 / 30);
             requestAnimationFrame(AnimateLoop);
         }
         AnimateLoop();
