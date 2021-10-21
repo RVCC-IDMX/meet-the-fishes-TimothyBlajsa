@@ -70,6 +70,13 @@
         //SCENE 1 acts as base 
         let scene1 = new PIXI.Container();
 
+        let titleCard = new PIXI.Graphics();
+        titleCard.beginFill(0xFFFFFF);
+        titleCard.drawRoundedRect(-10,0,650,650);
+        
+        titleCard.alpha = .85;
+        scene1.addChild(titleCard);
+
         //Using our button object let's create a "next" button.
         let nextButton = UI.Button(0, 0, "Next >");
         //nextButton.radius = .75;
@@ -81,13 +88,16 @@
         //And place it into the scene
         scene1.addChild(nextButton);
 
+       
+
         //And let's add some text to tell us which scene we're on
         let scene1Text = new PIXI.Text("Surreal Aquarium", {
             fontFamily: 'Sarif',
             fontSize: 35,
-            fill: 0xabdbe3,
-            align: 'center'
+            fill: 0x000000,
         });
+        scene1Text.x = 185;
+        scene1Text.y = 200;
 
         //And place it into the scene
         scene1.addChild(scene1Text);
