@@ -217,11 +217,20 @@
                 duration: 3000,
                 easing: Animate.easeInOut
             });
+            await pause(400);
+            fish1.width = 160;
+            await pause(100);
+            fish1.width = 185;
             await Animate.to(fish1, {
                 x: 420, y: 50,
                 duration: 2000,
                 easing: Animate.easeInOut
             });
+            await pause(400);
+            fish1.width = 165;
+            await pause(100);
+            fish1.width = 185;
+
             idleSwim1();
         }
         idleSwim1();
@@ -730,7 +739,9 @@
                 fish1.rotation = 0;
             };
             feed();
+            //idleSwim1();
         }
+
     </script>
 
 </body>
