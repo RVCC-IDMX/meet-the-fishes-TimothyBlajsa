@@ -115,9 +115,6 @@
         // Change sprite size
         fish1.scale.set(.095);
 
-        //test filter
-        fish1.filters = [new PIXI.filters.BlurFilter()];
-
         // Add it to the stage
         app.stage.addChild(fish1);
         
@@ -445,7 +442,7 @@
                 currentScene.alpha = 1;
             },
 
-            focus: async (currentScene, nextScene, params) => {
+            blink: async (currentScene, nextScene, params) => {
                 if (params == undefined) params = {};
                 if (params.duration == undefined) params.duration = 500;
 
@@ -544,30 +541,30 @@
         Director.addScene("fourth", scene4);
 
         nextButton.onclick = () => {
-            Director.showScene("second", { transition: Director.focus });
+            Director.showScene("second", { transition: Director.blink });
         }
 
         //Buttons for second slide
         backButton.onclick = () => {
-            Director.showScene("first", { transition: Director.focus });
+            Director.showScene("first", { transition: Director.blink });
         }
 
         nextButtonTwo.onclick = () => {
-            Director.showScene("third", { transition: Director.focus });
+            Director.showScene("third", { transition: Director.blink });
         }
 
         //Buttons for third slide
         backButtonTwo.onclick = () => {
-            Director.showScene("second", { transition: Director.focus })
+            Director.showScene("second", { transition: Director.blink })
         }
 
         nextButtonThree.onclick = () => {
-            Director.showScene("fourth", { transition: Director.focus });
+            Director.showScene("fourth", { transition: Director.blink });
         }
 
         //Buttons for fourth slide
         backButtonThree.onclick = () => {
-            Director.showScene("third", { transition: Director.focus });
+            Director.showScene("third", { transition: Director.blink });
         }
 
         /*
