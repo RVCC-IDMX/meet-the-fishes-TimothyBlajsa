@@ -57,14 +57,14 @@
 
 
         //Title Scene
-        
+
         //SCENE 1 acts as base 
         let scene1 = new PIXI.Container();
 
         //Create Title Card overlay
         let titleCard = new PIXI.Graphics();
         titleCard.beginFill(0xFFFFFF);
-        titleCard.drawRoundedRect(-10,0,650,650);
+        titleCard.drawRoundedRect(-10, 0, 650, 650);
         titleCard.alpha = .85;
         scene1.addChild(titleCard);
 
@@ -80,7 +80,7 @@
         //And place it into the scene
         scene1.addChild(nextButton);
 
-       
+
 
         //And let's add some text to tell us which scene we're on
         let scene1Text = new PIXI.Text("Surreal Aquarium", {
@@ -108,7 +108,7 @@
 
         // Add it to the stage
         app.stage.addChild(fish1);
-        
+
         // My Second Sprite
         let fish2 = PIXI.Sprite.from("img/smallfish.png");
 
@@ -361,20 +361,20 @@
         //Scene 4 Buttons
         let backButtonThree = UI.Button(0, 380, "< Back");
         scene4.addChild(backButtonThree);
-        let nextButtonFour = UI.Button(440,380,"Get Spooky");
+        let nextButtonFour = UI.Button(440, 380, "Get Spooky");
         scene4.addChild(nextButtonFour);
 
         // Scene 5
         let scene5 = new PIXI.Container();
 
         // Scene 5 Title Text
-        let scene5Text = new PIXI.Text("Spooky Fish", { fontFamily: 'sarif', fill:0xFFFFFF });
+        let scene5Text = new PIXI.Text("Spooky Fish", { fontFamily: 'sarif', fill: 0xFFFFFF });
         scene5.addChild(scene5Text);
 
         // Scene 5 Content
         let frostedGlass = new PIXI.Graphics();
         frostedGlass.beginFill(0xFFFFFF);
-        frostedGlass.drawRect(0,0,700,700);
+        frostedGlass.drawRect(0, 0, 700, 700);
         frostedGlass.alpha = .25;
         scene5.addChild(frostedGlass);
 
@@ -397,16 +397,16 @@
 
         let boo = new PIXI.Graphics();
         boo.beginFill(0xFFFFFF);
-        boo.drawRoundedRect(475,200,150,100);
+        boo.drawRoundedRect(475, 200, 150, 100);
         scene5.addChild(boo);
-        let booText = new PIXI.Text("BOO!", {fill:0x000000});
+        let booText = new PIXI.Text("BOO!", { fill: 0x000000 });
         booText.x = 515;
         booText.y = 230;
         scene5.addChild(booText);
-        
+
 
         // Scene 5 buttons
-        let backButtonFour = UI.Button(0,380, "< Back");
+        let backButtonFour = UI.Button(0, 380, "< Back");
         scene5.addChild(backButtonFour);
 
         //Director object to manage scenes
@@ -504,7 +504,7 @@
                 //Remove Blur Filter to refocus
                 app.stage.filters = false;
                 //Focus in to new scene
-                await Animate.to(nextScene, { alpha: 1, duration:params.duration / 2 });
+                await Animate.to(nextScene, { alpha: 1, duration: params.duration / 2 });
                 //Reset the off-stage scene's alpha back
                 currentScene.alpha = 1;
             },
@@ -618,12 +618,12 @@
 
         //Next button goes to fifth scene
         nextButtonFour.onclick = () => {
-            Director.showScene("fifth", {transition: Director.blink});
+            Director.showScene("fifth", { transition: Director.blink });
         }
 
         //Buttons for fifth slide, goes to fourth scene
         backButtonFour.onclick = () => {
-            Director.showScene("fourth", {transition: Director.blink});
+            Director.showScene("fourth", { transition: Director.blink });
         }
 
 
@@ -652,7 +652,7 @@
         */
 
         // Animate logic, for background animations
-        
+
         // Animate loop function
         function AnimateLoop() {
             let time = Date.now();
@@ -802,7 +802,7 @@
                 easing: Animate.easeInOut
             })
             await Animate.to(ghost, {
-                x:75, y: -10,
+                x: 75, y: -10,
                 duration: 2000,
                 easing: Animate.easeInOut
             })
@@ -826,7 +826,7 @@
             boo.visible = false;
             booText.visible = false;
         }
-        
+
 
     </script>
 
