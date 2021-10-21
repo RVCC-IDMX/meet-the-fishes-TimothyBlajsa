@@ -372,11 +372,30 @@
         scene5.addChild(scene5Text);
 
         // Scene 5 Content
+        let frostedGlass = new PIXI.Graphics();
+        frostedGlass.beginFill(0xFFFFFF);
+        frostedGlass.drawRect(0,0,700,700);
+        frostedGlass.alpha = .25;
+        scene5.addChild(frostedGlass);
+
+        let webOne = PIXI.Sprite.from("img/web.png");
+        webOne.scale.set(.5);
+        webOne.x = 25;
+        webOne.tint = 0xFFFFFF;
+        scene5.addChild(webOne)
+
+        let webTwo = PIXI.Sprite.from("img/web.png");
+        webTwo.scale.set(.25);
+        webTwo.x = -65;
+        scene5.addChild(webTwo);
+
         let ghost = PIXI.Sprite.from("img/ghosty.png");
         ghost.scale.set(.25);
         ghost.x = 75;
         ghost.y = -25;
         scene5.addChild(ghost);
+
+        
 
         // Scene 5 buttons
         let backButtonFour = UI.Button(0,380, "< Back");
@@ -768,6 +787,21 @@
                 x: 0, y: 25, duration: 0
             });
         }
+
+        async function floatGhost() {
+            await Animate.to(ghost, {
+                x: 75, y: -30,
+                duration: 2000,
+                easing: Animate.easeInOut
+            })
+            await Animate.to(ghost, {
+                x:75, y: -10,
+                duration: 2000,
+                easing: Animate.easeInOut
+            })
+            floatGhost()
+        }
+        floatGhost()
 
     </script>
 
