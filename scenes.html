@@ -82,11 +82,11 @@
         scene1.addChild(nextButton);
 
         //And let's add some text to tell us which scene we're on
-        let scene1Text = new PIXI.Text("Surreal Aquarium", { 
-            fontFamily: 'Sarif', 
-            fontSize: 35, 
-            fill: 0xabdbe3, 
-            align: 'center' 
+        let scene1Text = new PIXI.Text("Surreal Aquarium", {
+            fontFamily: 'Sarif',
+            fontSize: 35,
+            fill: 0xabdbe3,
+            align: 'center'
         });
 
         //And place it into the scene
@@ -125,7 +125,7 @@
         fish3.tint = 0x2e3f6b;
         app.stage.addChild(fish3);
 
-        
+
 
         // My kelp sprite
         let kelp1 = PIXI.Sprite.from("img/kelp.png");
@@ -264,22 +264,22 @@
         //scene mask
         let sceneTwoMask = new PIXI.Graphics();
         sceneTwoMask.beginFill(0xEEEEEE);
-        sceneTwoMask.drawCircle(0,0,275,275);
+        sceneTwoMask.drawCircle(0, 0, 275, 275);
         sceneTwoMask.alpha = .8;
         sceneTwoMask.x = 500;
         sceneTwoMask.y = 75;
         scene2.addChild(sceneTwoMask)
-        
-        let testFishText = new PIXI.Text('This is the Rainbow Fish \nIt likes to change colors \nrandomly and according \nto specific time intervals. \nSome say it tastes like \nskittles candy', {fill: 0x000000});
+
+        let testFishText = new PIXI.Text('This is the Rainbow Fish \nIt likes to change colors \nrandomly and according \nto specific time intervals. \nSome say it tastes like \nskittles candy', { fill: 0x000000 });
         testFishText.x = 325;
         testFishText.y = 75;
         testFishText.style.fontFamily = 'Sans-Sarif';
-        
+
         scene2.addChild(testFishText);
 
         //SCene two buttons
-        let nextButtonTwo = UI.Button(440,380, "Next >");
-        
+        let nextButtonTwo = UI.Button(440, 380, "Next >");
+
         scene2.addChild(nextButtonTwo);
 
         // nextButton.x = app.view.width - nextButton.width;
@@ -287,14 +287,14 @@
 
         //Scene 3 
         let scene3 = new PIXI.Container();
-        let scene3Text = new PIXI.Text("Betta Fish", {fill: 0xFFFFFF});
+        let scene3Text = new PIXI.Text("Betta Fish", { fill: 0xFFFFFF });
         scene3Text.x = 510;
         scene3.addChild(scene3Text);
 
         //scene mask
         let sceneThreeMask = new PIXI.Graphics();
         sceneThreeMask.beginFill(0xEEEEEE);
-        sceneThreeMask.drawCircle(0,0,275,275);
+        sceneThreeMask.drawCircle(0, 0, 275, 275);
         sceneThreeMask.alpha = .8;
         sceneThreeMask.x = 75;
         sceneThreeMask.y = 125;
@@ -302,35 +302,35 @@
 
         let sceneThreeMaskTwo = new PIXI.Graphics();
         sceneThreeMaskTwo.beginFill(0xEEEEEE);
-        sceneThreeMaskTwo.drawCircle(0,0,125,125);
+        sceneThreeMaskTwo.drawCircle(0, 0, 125, 125);
         sceneThreeMaskTwo.alpha = .75;
         sceneThreeMaskTwo.x = 500;
         sceneThreeMaskTwo.y = 225;
         scene3.addChild(sceneThreeMaskTwo)
-        
-        let fish2Text = new PIXI.Text('This is the Betta Fish \nA perfect digital replica \nof my own real betta, \nit spends time making \nbubble nests and resting \non its leaf', {fill: 0x000000});
+
+        let fish2Text = new PIXI.Text('This is the Betta Fish \nA perfect digital replica \nof my own real betta, \nit spends time making \nbubble nests and resting \non its leaf', { fill: 0x000000 });
         fish2Text.x = 50;
         fish2Text.y = 75;
         fish2Text.style.fontFamily = 'Sans-Sarif';
-        
+
         scene3.addChild(fish2Text);
 
         //Scene 3 Buttons
-        let backButtonTwo = UI.Button(0,380, "< Back");
+        let backButtonTwo = UI.Button(0, 380, "< Back");
         scene3.addChild(backButtonTwo);
-        let nextButtonThree = UI.Button(440,380, "Next >");
+        let nextButtonThree = UI.Button(440, 380, "Next >");
         scene3.addChild(nextButtonThree);
 
 
         //Scene 4
         let scene4 = new PIXI.Container();
-        let scene4Text = new PIXI.Text("Silver Fish", {fill: 0xFFFFFF});
+        let scene4Text = new PIXI.Text("Silver Fish", { fill: 0xFFFFFF });
         scene4.addChild(scene4Text);
 
         //scene mask
         let sceneFourMask = new PIXI.Graphics();
         sceneFourMask.beginFill(0xEEEEEE);
-        sceneFourMask.drawCircle(0,0,200,200);
+        sceneFourMask.drawCircle(0, 0, 200, 200);
         sceneFourMask.alpha = .8;
         sceneFourMask.x = 125;
         sceneFourMask.y = 250;
@@ -338,21 +338,21 @@
 
         let sceneFourMaskTwo = new PIXI.Graphics();
         sceneFourMaskTwo.beginFill(0xEEEEEE);
-        sceneFourMaskTwo.drawCircle(0,0,125,125);
+        sceneFourMaskTwo.drawCircle(0, 0, 125, 125);
         sceneFourMaskTwo.alpha = .75;
         sceneFourMaskTwo.x = 325;
         sceneFourMaskTwo.y = 25;
         scene4.addChild(sceneFourMaskTwo)
-        
-        let fish3Text = new PIXI.Text('This is the Silver Fish \nA fish that looks like a \nminiature tuna at times, \nit likes when the user \nfeeds it food; we ran\nout so now it \njust wags', {fill: 0x000000});
+
+        let fish3Text = new PIXI.Text('This is the Silver Fish \nA fish that looks like a \nminiature tuna at times, \nit likes when the user \nfeeds it food; we ran\nout so now it \njust wags', { fill: 0x000000 });
         fish3Text.x = 35;
         fish3Text.y = 150;
         fish3Text.style.fontFamily = 'Sans-Sarif';
-        
+
         scene4.addChild(fish3Text);
 
         //Scene 4 Buttons
-        let backButtonThree = UI.Button(0,380, "< Back");
+        let backButtonThree = UI.Button(0, 380, "< Back");
         scene4.addChild(backButtonThree);
 
         //Let's call it the Director. It calls the shots.
@@ -524,16 +524,16 @@
 
         //Buttons for third slide
         backButtonTwo.onclick = () => {
-            Director.showScene("second", { transition: Director.fade})
+            Director.showScene("second", { transition: Director.fade })
         }
 
         nextButtonThree.onclick = () => {
-            Director.showScene("fourth", { transition: Director.fade});
+            Director.showScene("fourth", { transition: Director.fade });
         }
 
         //Buttons for fourth slide
         backButtonThree.onclick = () => {
-            Director.showScene("third", { transition: Director.fade});
+            Director.showScene("third", { transition: Director.fade });
         }
 
         /*
