@@ -10,7 +10,7 @@ var UI = {
             params = {};
         }
         if (params.backgroundColor == undefined)
-            params.backgroundColor = 0xEEEEEE;
+            params.backgroundColor = 0xabdbe3;
         if (params.textStyle == undefined) {
             params.textStyle = {
                 fontFamily : 'Arial', 
@@ -42,7 +42,7 @@ var UI = {
             buttonText.style.fontFamily = 'Sarif';
             buttonText.style.dropShadow = true;
             buttonText.style.dropShadowDistance = 1.5;
-            buttonText.style.dropShadowColor = '0xabdbe3';
+            buttonText.style.dropShadowColor = '0xEEEEEE';
             ourButton.addChild(buttonText);
 
             ourButton.label = buttonText;
