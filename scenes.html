@@ -365,6 +365,17 @@
         scene4.addChild(nextButtonFour);
 
         // Scene 5
+        let scene5 = new PIXI.Container();
+
+        // Scene 5 Title Text
+        let scene5Text = new PIXI.Text("Spooky Fish", {fill:0xFFFFFF});
+        scene5.addChild(scene5Text);
+
+        // Scene 5 buttons
+        let backButtonFour = UI.Button(0,380, "< Back");
+        scene5.addChild(backButtonFour);
+        let nextButtonFive = UI.Button(440,380, "Next >");
+        scene5.addChild(nextButtonFive);
 
         //Director object to manage scenes
         var Director = {
@@ -541,6 +552,7 @@
         Director.addScene("second", scene2);
         Director.addScene("third", scene3);
         Director.addScene("fourth", scene4);
+        Director.addScene("fifth", scene5);
 
         //First next button, goes to second scene
         nextButton.onclick = () => {
@@ -571,6 +583,17 @@
         backButtonThree.onclick = () => {
             Director.showScene("third", { transition: Director.blink });
         }
+
+        //Next button goes to fifth scene
+        nextButtonFour.onclick = () => {
+            Director.showScene("fifth", {transition: Director.blink});
+        }
+
+        //Buttons for fifth slide, goes to fourth scene
+        backButtonFour.onclick = () => {
+            Director.showScene("fourth", {transition: Director.blink});
+        }
+
 
         /*
             This week's homework!
