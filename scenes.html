@@ -371,6 +371,13 @@
         let scene5Text = new PIXI.Text("Spooky Fish", {fill:0xFFFFFF});
         scene5.addChild(scene5Text);
 
+        // Scene 5 Content
+        let ghost = PIXI.Sprite.from("img/ghosty.png");
+        ghost.scale.set(.25);
+        ghost.x = 75;
+        ghost.y = -25;
+        scene5.addChild(ghost);
+
         // Scene 5 buttons
         let backButtonFour = UI.Button(0,380, "< Back");
         scene5.addChild(backButtonFour);

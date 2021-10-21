@@ -45,6 +45,10 @@ This iteration of the project was smooth for the most part, save for simple typo
 
 [Bubble](https://pngtree.com/freepng/element-float-round-blue-bubble_3917386.html)
 
+[Ghost](https://pngtree.com/freepng/cute-ghost-ghostly-cute-ghost-ghost_3933462.html)
+
+[Web](https://pngtree.com/freepng/creative-cartoon-spider-web-spider-web-icon_107661.html)
+
 ##### Note: some links connect to images where user is only permitted two downloads a day, in the case a link returns a screen where the image itself does not show, use alternate link provided below
 [Bubble Alt Link](https://pngtree.com/so/element)
 #### Resources
