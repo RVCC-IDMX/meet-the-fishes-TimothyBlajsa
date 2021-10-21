@@ -252,18 +252,28 @@
 
         //Scene Two Content
 
+        //fish highlight
         let fish1Bubble = new PIXI.Graphics()
         fish1Bubble.beginFill(0xEEEEEE);
         fish1Bubble.drawCircle(0,0,125,125);
-        fish1Bubble.alpha = .2;
+        fish1Bubble.alpha = .1;
         fish1Bubble.x = 125;
         fish1Bubble.y = 250;
         scene2.addChild(fish1Bubble)
+
+        //scene mask
+        let sceneTwoMask = new PIXI.Graphics();
+        sceneTwoMask.beginFill(0xEEEEEE);
+        sceneTwoMask.drawCircle(0,0,275,275);
+        sceneTwoMask.alpha = .8;
+        sceneTwoMask.x = 500;
+        sceneTwoMask.y = 75;
+        scene2.addChild(sceneTwoMask)
         
-        let testFishText = new UI.Button(0,0, "This is sample\ntext\nof a fish");
-        testFishText.y = 215;
-        testFishText.x = 275;
-        testFishText.interactive = false;
+        let testFishText = new PIXI.Text('This is the Rainbow Fish \nIt likes to change colors \nrandomly and according \nto specific time intervals. \nSome say it tastes like \nskittles candy', {fill: 0x000000});
+        testFishText.x = 325;
+        testFishText.y = 75;
+        testFishText.style.fontFamily = 'Sans-Sarif';
         
         scene2.addChild(testFishText);
 
@@ -277,8 +287,33 @@
 
         //Scene 3 
         let scene3 = new PIXI.Container();
-        let scene3Text = new PIXI.Text("Scene 3", {fill: 0xFFFFFF});
+        let scene3Text = new PIXI.Text("Betta Fish", {fill: 0xFFFFFF});
+        scene3Text.x = 510;
         scene3.addChild(scene3Text);
+
+        //scene mask
+        let sceneThreeMask = new PIXI.Graphics();
+        sceneThreeMask.beginFill(0xEEEEEE);
+        sceneThreeMask.drawCircle(0,0,275,275);
+        sceneThreeMask.alpha = .8;
+        sceneThreeMask.x = 75;
+        sceneThreeMask.y = 125;
+        scene3.addChild(sceneThreeMask)
+
+        let sceneThreeMaskTwo = new PIXI.Graphics();
+        sceneThreeMaskTwo.beginFill(0xEEEEEE);
+        sceneThreeMaskTwo.drawCircle(0,0,125,125);
+        sceneThreeMaskTwo.alpha = .75;
+        sceneThreeMaskTwo.x = 500;
+        sceneThreeMaskTwo.y = 225;
+        scene3.addChild(sceneThreeMaskTwo)
+        
+        let fish2Text = new PIXI.Text('This is the Betta Fish \nA perfect digital replica \nof my own real betta, \nit spends time making \nbubble nests and resting \non its leaf', {fill: 0x000000});
+        fish2Text.x = 50;
+        fish2Text.y = 75;
+        fish2Text.style.fontFamily = 'Sans-Sarif';
+        
+        scene3.addChild(fish2Text);
 
         //Scene 3 Buttons
         let backButtonTwo = UI.Button(0,380, "< Back");
