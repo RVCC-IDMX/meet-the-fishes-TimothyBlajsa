@@ -115,8 +115,14 @@
         // Change sprite size
         fish1.scale.set(.095);
 
+        //test filter
+        fish1.filters = [new PIXI.filters.BlurFilter()];
+
         // Add it to the stage
         app.stage.addChild(fish1);
+        
+
+        
 
         // My Second Sprite
         let fish2 = PIXI.Sprite.from("img/smallfish.png");
@@ -439,6 +445,19 @@
                 currentScene.alpha = 1;
             },
 
+            fog: async (currentScene, nextScene, params) => {
+                if (params == undefined) params = {};
+                if (params.duration == undefined) params.duration = 500;
+
+                await Animate.to(currentScene, {alpha:0,duration: params.duration /2});
+
+                app.stage.removeChild(currentScene);
+                nextScene.alpha = 1;
+                app.stage.addChild(nextScene);
+                await Animate.to(nextScene, {alpha:1,duration:params.duration/2});
+                currentScene.alpha = 1;
+
+            },
             //Slide in a particular direction
             swipe: async (currentScene, nextScene, params) => {
 
@@ -521,7 +540,7 @@
         Director.addScene("fourth", scene4);
 
         nextButton.onclick = () => {
-            Director.showScene("second", { transition: Director.fade });
+            Director.showScene("second", { transition: Director.fog });
         }
 
         //Buttons for second slide
