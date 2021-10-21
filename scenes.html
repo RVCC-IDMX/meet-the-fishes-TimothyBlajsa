@@ -445,15 +445,17 @@
                 currentScene.alpha = 1;
             },
 
-            fog: async (currentScene, nextScene, params) => {
+            focus: async (currentScene, nextScene, params) => {
                 if (params == undefined) params = {};
                 if (params.duration == undefined) params.duration = 500;
 
-                await Animate.to(currentScene, {alpha:0,duration: params.duration /2});
-
+                await Animate.to(currentScene, {alpha:0,duration: params.duration / 2});
+                
                 app.stage.removeChild(currentScene);
-                nextScene.alpha = 1;
+                app.stage.filters = [new PIXI.filters.BlurFilter()];
                 app.stage.addChild(nextScene);
+                await pause(130)
+                app.stage.filters = false;
                 await Animate.to(nextScene, {alpha:1,duration:params.duration/2});
                 currentScene.alpha = 1;
 
@@ -540,30 +542,30 @@
         Director.addScene("fourth", scene4);
 
         nextButton.onclick = () => {
-            Director.showScene("second", { transition: Director.fog });
+            Director.showScene("second", { transition: Director.focus });
         }
 
         //Buttons for second slide
         backButton.onclick = () => {
-            Director.showScene("first", { transition: Director.fade });
+            Director.showScene("first", { transition: Director.focus });
         }
 
         nextButtonTwo.onclick = () => {
-            Director.showScene("third", { transition: Director.fade });
+            Director.showScene("third", { transition: Director.focus });
         }
 
         //Buttons for third slide
         backButtonTwo.onclick = () => {
-            Director.showScene("second", { transition: Director.fade })
+            Director.showScene("second", { transition: Director.focus })
         }
 
         nextButtonThree.onclick = () => {
-            Director.showScene("fourth", { transition: Director.fade });
+            Director.showScene("fourth", { transition: Director.focus });
         }
 
         //Buttons for fourth slide
         backButtonThree.onclick = () => {
-            Director.showScene("third", { transition: Director.fade });
+            Director.showScene("third", { transition: Director.focus });
         }
 
         /*
