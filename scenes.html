@@ -694,10 +694,31 @@
             Director.showScene("sixth", { transition: Director.blink });
         }
 
+        // Buttons for sixth slide, goes to any slide, back to fifth scene
         backButtonFive.onclick = () => {
             Director.showScene("fifth", { transition: Director.blink });
         }
 
+        // Rainbow button goes to second scene
+        rainbowButton.onclick = () => {
+            Director.showScene("second", { transition: Director.blink });
+        }
+
+        // Betta button goes to third scene
+        bettaButton.onclick = () => {
+            Director.showScene("third", { transition: Director.blink });
+        }
+
+        // Silver button goes to fourth scene
+        silverButton.onclick = () => {
+            Director.showScene("fourth", { transition: Director.blink });
+        }
+
+        // Spooky button goes to fifth scene
+        spookyButton.onclick = () => {
+            Director.showScene("fifth", { transition: Director.blink });
+        }
+        
         // Home button returns to title screen/scene 1
         homeButton.onclick = () => {
             Director.showScene("first", { transition: Director.blink });
