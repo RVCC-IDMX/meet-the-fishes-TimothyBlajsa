@@ -558,6 +558,8 @@
                 app.stage.removeChild(currentScene);
                 // Apply Blur Filter to unfocus
                 app.stage.filters = [new PIXI.filters.BlurFilter()];
+                // Set next scene to zero alpha
+                nextScene.alpha = 0;
                 // Wait
                 await pause(120)
                 // Add it to the stage
@@ -718,7 +720,7 @@
         spookyButton.onclick = () => {
             Director.showScene("fifth", { transition: Director.blink });
         }
-        
+
         // Home button returns to title screen/scene 1
         homeButton.onclick = () => {
             Director.showScene("first", { transition: Director.blink });
