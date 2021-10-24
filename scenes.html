@@ -38,7 +38,7 @@
         // Basic setup
         //
 
-        //The App
+        // The App
         var app = new PIXI.Application({
             width: 640,
             height: 480,
@@ -47,7 +47,7 @@
         var stage = app.stage;
         var view = app.view;
 
-        //Add view to the document
+        // Add view to the document
         document.body.appendChild(app.view);
 
         // My background sprite
@@ -55,34 +55,33 @@
         background.scale.set(.7);
         app.stage.addChild(background);
 
+        //
+        // Scene 1/Title Scene
+        //
 
-        //Title Scene
-
-        //SCENE 1 acts as base 
+        // SCENE 1 structure 
         let scene1 = new PIXI.Container();
 
-        //Create Title Card overlay
+        // Create Title Card overlay
         let titleCard = new PIXI.Graphics();
         titleCard.beginFill(0xFFFFFF);
         titleCard.drawRoundedRect(-10, 0, 650, 650);
         titleCard.alpha = .85;
         scene1.addChild(titleCard);
 
-        //Scene 1 Next Button Created with text
+        // Scene 1 Next Button Created with text
         let nextButton = UI.Button(0, 0, "Next >");
         let nextButtonText = new PIXI.Text("Next >");
         //nextButton.radius = .75;
 
-        //Let's place it in the bottom right-hand corner of the screen (regardless of size)
+        // Let's place it in the bottom right-hand corner of the screen (regardless of size)
         nextButton.x = app.view.width - nextButton.width;
         nextButton.y = app.view.height - nextButton.height;
 
-        //And place it into the scene
+        // And place it into the scene
         scene1.addChild(nextButton);
 
-
-
-        //And let's add some text to tell us which scene we're on
+        // And let's add some text to tell us which scene we're on
         let scene1Text = new PIXI.Text("Surreal Aquarium", {
             fontFamily: 'Sarif',
             fontSize: 35,
@@ -91,10 +90,12 @@
         scene1Text.x = 185;
         scene1Text.y = 200;
 
-        //And place it into the scene
+        // And place it into the scene
         scene1.addChild(scene1Text);
 
-        // begin sprites for base state
+        //
+        // Begin SPRITES for BACKGROUND PLATE
+        //
 
         // My First Sprite
         let fish1 = PIXI.Sprite.from("img/bigfish.png");
@@ -240,6 +241,10 @@
         // Add scene 1 to stage
         app.stage.addChild(scene1);
 
+        //
+        // Scene 2
+        //
+
         // SCENE 2 structure
         let scene2 = new PIXI.Container();
 
@@ -259,9 +264,8 @@
         // Add Title Text to Scene 2
         scene2.addChild(scene2Text);
 
-        // Scene 2 Content
-
-        // scene mask
+        // Scene 2 Body Content
+        // Scene Mask
         let sceneTwoMask = new PIXI.Graphics();
         sceneTwoMask.beginFill(0xEEEEEE);
         sceneTwoMask.drawCircle(0, 0, 275, 275);
@@ -270,18 +274,22 @@
         sceneTwoMask.y = 75;
         scene2.addChild(sceneTwoMask)
 
-        // scene 2 body content
+        // Scene 2 Body Text
         let rainbowFishText = new PIXI.Text('This is the Rainbow Fish \nIt likes to change colors \nrandomly and according \nto specific time intervals. \nSome say it tastes like \nskittles candy', { fill: 0x000000 });
         rainbowFishText.x = 325;
         rainbowFishText.y = 75;
         rainbowFishText.style.fontFamily = 'Sans-Sarif';
 
-        // add body content to scene 2
+        // Add body content to scene 2
         scene2.addChild(rainbowFishText);
 
-        // SCene two buttons
+        // Scene two buttons
         let nextButtonTwo = UI.Button(440, 380, "Next >");
         scene2.addChild(nextButtonTwo);
+
+        //
+        // Scene 3
+        // 
 
         // Scene 3 structure
         let scene3 = new PIXI.Container();
@@ -291,7 +299,8 @@
         scene3Text.x = 510;
         scene3.addChild(scene3Text);
 
-        // scene mask
+        // Scene 3 Body Content
+        // Scene mask
         let sceneThreeMask = new PIXI.Graphics();
         sceneThreeMask.beginFill(0xEEEEEE);
         sceneThreeMask.drawCircle(0, 0, 275, 275);
@@ -300,7 +309,7 @@
         sceneThreeMask.y = 125;
         scene3.addChild(sceneThreeMask)
 
-        // scene mask two
+        // Scene mask two
         let sceneThreeMaskTwo = new PIXI.Graphics();
         sceneThreeMaskTwo.beginFill(0xEEEEEE);
         sceneThreeMaskTwo.drawCircle(0, 0, 125, 125);
@@ -309,25 +318,26 @@
         sceneThreeMaskTwo.y = 225;
         scene3.addChild(sceneThreeMaskTwo)
 
-        // scene 3 body text
-        let fish2Text = new PIXI.Text('This is the Betta Fish \nA perfect digital replica \nof my own real betta, \nit spends time making \nbubble nests and resting \non its leaf', { fill: 0x000000 });
+        // Scene 3 body text
+        let fish2Text = new PIXI.Text('This is the Betta Fish! \nA perfect digital replica \nof my own real betta, \nit spends time making \nbubble nests and resting \non its leaf.', { fill: 0x000000 });
         fish2Text.x = 50;
         fish2Text.y = 75;
         fish2Text.style.fontFamily = 'Sans-Sarif';
 
-        // add body text to scene 3
+        // Add body text to scene 3
         scene3.addChild(fish2Text);
 
-        //Scene 3 Buttons
+        // Scene 3 Buttons
         let backButtonTwo = UI.Button(0, 380, "< Back");
         scene3.addChild(backButtonTwo);
         let nextButtonThree = UI.Button(440, 380, "Next >");
         scene3.addChild(nextButtonThree);
 
         //
-        // Scene 4 structure
+        // Scene 4
         //
 
+        // Scene 4 structure
         let scene4 = new PIXI.Container();
 
         // Scene 4 Title Text
