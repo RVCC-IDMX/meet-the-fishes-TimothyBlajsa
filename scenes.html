@@ -429,8 +429,24 @@
         // Scene 5 buttons
         let backButtonFour = UI.Button(0, 380, "< Back");
         scene5.addChild(backButtonFour);
+        let nextButtonFive = UI.Button(440, 380, "Next >");
+        scene5.addChild(nextButtonFive);
+        
+        //
+        // Index
+        //
+
+        let fishIndex = new PIXI.Container();
+
+        let rainbowButton = UI.Button(25, 50, "Rainbow Fish");
+        fishIndex.addChild(rainbowButton);
+
+        let backButtonFive = UI.Button(0, 380, "< Back");
+        fishIndex.addChild(backButtonFive);
+
         let homeButton = UI.Button(440, 380, "Home");
-        scene5.addChild(homeButton);
+        fishIndex.addChild(homeButton);
+
 
         // Director object to manage scenes
         var Director = {
@@ -608,6 +624,7 @@
         Director.addScene("third", scene3);
         Director.addScene("fourth", scene4);
         Director.addScene("fifth", scene5);
+        Director.addScene("sixth", fishIndex);
 
         // First next button, goes to second scene
         nextButton.onclick = () => {
@@ -649,6 +666,14 @@
             Director.showScene("fourth", { transition: Director.blink });
         }
 
+        nextButtonFive.onclick = () => {
+            Director.showScene("sixth", { transition: Director.blink });
+        }
+
+        backButtonFive.onclick = () => {
+            Director.showScene("fifth", { transition: Director.blink });
+        }
+        
         // Home button returns to title screen/scene 1
         homeButton.onclick = () => {
             Director.showScene("first", { transition: Director.blink });
