@@ -429,6 +429,8 @@
         // Scene 5 buttons
         let backButtonFour = UI.Button(0, 380, "< Back");
         scene5.addChild(backButtonFour);
+        let homeButton = UI.Button(440, 380, "Home");
+        scene5.addChild(homeButton);
 
         // Director object to manage scenes
         var Director = {
@@ -645,6 +647,11 @@
         // Buttons for fifth slide, goes to fourth scene
         backButtonFour.onclick = () => {
             Director.showScene("fourth", { transition: Director.blink });
+        }
+
+        // Home button returns to title screen/scene 1
+        homeButton.onclick = () => {
+            Director.showScene("first", { transition: Director.blink });
         }
 
         //
