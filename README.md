@@ -11,12 +11,17 @@ The above scenes include various animations, in addition to their base state. As
 - Big Fish
 - SMall Fish
 - Betta Fish
+- Ghost fish
 - Background
 - Kelp
 - Coral
 - Bubbles
 
 Each scene is navigated with the inclusion of back and next buttons, accompanied by a custom blinking transition.
+
+For convenience, and to avoid unnecessary navigation, an index page was included at the end of the project, allowing the user to navigate to any scene they want.
+
+The custom transition blurs the stage before setting the previous scene's alpha to zero, in which it then removes the blur upon adding the next scene.
 
 The background remains the same from the previous iteration, including animated bubbles, sound, and kelp.
 ## Author Testimony
