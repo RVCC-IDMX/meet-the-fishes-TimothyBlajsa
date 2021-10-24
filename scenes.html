@@ -324,14 +324,18 @@
         let nextButtonThree = UI.Button(440, 380, "Next >");
         scene3.addChild(nextButtonThree);
 
-        //Scene 4 structure
+        //
+        // Scene 4 structure
+        //
+
         let scene4 = new PIXI.Container();
 
-        // scene 4 Title Text
+        // Scene 4 Title Text
         let scene4Text = new PIXI.Text("Silver Fish", { fontFamily: 'sarif', fill: 0xFFFFFF });
         scene4.addChild(scene4Text);
 
-        //scene mask
+        // Scene 4 Body Content
+        // Scene mask
         let sceneFourMask = new PIXI.Graphics();
         sceneFourMask.beginFill(0xEEEEEE);
         sceneFourMask.drawCircle(0, 0, 200, 200);
@@ -340,7 +344,7 @@
         sceneFourMask.y = 250;
         scene4.addChild(sceneFourMask)
 
-        // scene mask two
+        // Scene mask two
         let sceneFourMaskTwo = new PIXI.Graphics();
         sceneFourMaskTwo.beginFill(0xEEEEEE);
         sceneFourMaskTwo.drawCircle(0, 0, 125, 125);
@@ -349,8 +353,8 @@
         sceneFourMaskTwo.y = 25;
         scene4.addChild(sceneFourMaskTwo)
 
-        // scene 4 Body Text
-        let fish3Text = new PIXI.Text('This is the Silver Fish \nA fish that looks like a \nminiature tuna at times, \nit likes when the user \nfeeds it food; we ran\nout so now it \njust wags', { fill: 0x000000 });
+        // Scene 4 Body Text
+        let fish3Text = new PIXI.Text('This is the Silver Fish! \nA fish that looks like a \nminiature tuna at times, \nit likes when the user \nfeeds it food; we ran\nout so now it \njust wags!', { fill: 0x000000 });
         fish3Text.x = 35;
         fish3Text.y = 150;
         fish3Text.style.fontFamily = 'Sans-Sarif';
@@ -358,20 +362,23 @@
         // Add body text to scene 4
         scene4.addChild(fish3Text);
 
-        //Scene 4 Buttons
+        // Scene 4 Buttons
         let backButtonThree = UI.Button(0, 380, "< Back");
         scene4.addChild(backButtonThree);
         let nextButtonFour = UI.Button(440, 380, "Get Spooky");
         scene4.addChild(nextButtonFour);
 
+        //
         // Scene 5
+        //
+
         let scene5 = new PIXI.Container();
 
         // Scene 5 Title Text
         let scene5Text = new PIXI.Text("Spooky Fish", { fontFamily: 'sarif', fill: 0xFFFFFF });
         scene5.addChild(scene5Text);
 
-        // Scene 5 Content
+        // Scene 5 Body Content
         let frostedGlass = new PIXI.Graphics();
         frostedGlass.beginFill(0xFFFFFF);
         frostedGlass.drawRect(0, 0, 700, 700);
@@ -413,32 +420,32 @@
         let backButtonFour = UI.Button(0, 380, "< Back");
         scene5.addChild(backButtonFour);
 
-        //Director object to manage scenes
+        // Director object to manage scenes
         var Director = {
 
-            //Object to hold list of scenes
+            // Object to hold list of scenes
             scene: {},
 
-            //Add a scene to the list
+            // Add a scene to the list
             addScene: (name, scene) => {
 
-                //If it exists throw an error
+                // If it exists throw text
                 if (Director.scene[name])
                     throw "That scene already exists!"
 
-                //Otherwise add it
+                // Otherwise add it
                 Director.scene[name] = scene;
 
-                //If it's the first scene, make it the active one
+                // If it's the first scene, make it the active one
                 if (Director.currentScene == null)
                     Director.currentScene = name;
 
             },
 
-            //Keep track of the current scene
+            // Keep track of the current scene
             currentScene: null,
 
-            //Change scene function
+            // Change scene function
             showScene: async (nextSceneName, params) => {
 
                 if (params == undefined) params = {};
@@ -456,10 +463,10 @@
             },
 
             //
-            //Transitions for changing scenes
+            // Transitions for changing scenes
             //
 
-            //Cut (no transition)
+            // Cut (no transition)
             cut: async (currentScene, nextScene, params) => {
                 app.stage.removeChild(currentScene);
                 app.stage.addChild(nextScene);
@@ -468,66 +475,66 @@
             //Fade between
             fade: async (currentScene, nextScene, params) => {
 
-                //Check duration
+                // Check duration
                 if (params == undefined) params = {};
                 if (params.duration == undefined) params.duration = 500;
 
-                //Fade out current scene
+                // Fade out current scene
                 await Animate.to(currentScene, { alpha: 0, duration: params.duration / 2 });
-                //Remove it from stage
+                // Remove it from stage
                 app.stage.removeChild(currentScene);
-                //Set next scene to zero alpha
+                // Set next scene to zero alpha
                 nextScene.alpha = 0;
-                //Add it to the stage
+                // Add it to the stage
                 app.stage.addChild(nextScene);
-                //Fade it in
+                // Fade it in
                 await Animate.to(nextScene, { alpha: 1, duration: params.duration / 2 });
-                //Reset the off-stage scene's alpha back
+                // Reset the off-stage scene's alpha back
                 currentScene.alpha = 1;
             },
 
-            //Pull focus between
+            // Pull focus between
             blink: async (currentScene, nextScene, params) => {
 
-                //Check duration
+                // Check duration
                 if (params == undefined) params = {};
                 if (params.duration == undefined) params.duration = 500;
 
-                //Unfocus current scene
+                // Unfocus current scene
                 await Animate.to(currentScene, { alpha: 0, duration: params.duration / 2 });
-                //Remove it from stage
+                // Remove it from stage
                 app.stage.removeChild(currentScene);
-                //Apply Blur Filter to unfocus
+                // Apply Blur Filter to unfocus
                 app.stage.filters = [new PIXI.filters.BlurFilter()];
-                //Wait
+                // Wait
                 await pause(120)
-                //Add it to the stage
+                // Add it to the stage
                 app.stage.addChild(nextScene);
-                //Wait
+                // Wait
                 await pause(60)
-                //Remove Blur Filter to refocus
+                // Remove Blur Filter to refocus
                 app.stage.filters = false;
-                //Focus in to new scene
+                // Focus in to new scene
                 await Animate.to(nextScene, { alpha: 1, duration: params.duration / 2 });
-                //Reset the off-stage scene's alpha back
+                // Reset the off-stage scene's alpha back
                 currentScene.alpha = 1;
             },
 
-            //Slide in a particular direction
+            // Slide in a particular direction
             swipe: async (currentScene, nextScene, params) => {
 
-                //Set up destinations
+                // Set up destinations
                 let currentSceneEndX, currentSceneEndY;
                 let nextSceneStartX, nextSceneStartY;
 
-                //Check duration
+                // Check duration
                 if (params == undefined) params = {};
                 if (params.duration == undefined) params.duration = 500;
 
-                //Set default direction
+                // Set default direction
                 if (params.direction == undefined) params.direction = "left";
 
-                //Figure out initial and end positions
+                // Figure out initial and end positions
                 if (params.direction == "left") {
                     currentSceneEndX = -app.view.width;
                     currentSceneEndY = 0;
@@ -553,26 +560,26 @@
                     nextSceneStartY = -app.view.height;
                 }
 
-                //Set up next scene
+                // Set up next scene, position, and adding to stage
                 nextScene.x = nextSceneStartX;
                 nextScene.y = nextSceneStartY;
                 app.stage.addChild(nextScene);
 
-                //Slide out current scene as it moves off
+                // Slide out current scene as it moves off
                 Animate.to(currentScene, {
                     x: currentSceneEndX, y: currentSceneEndY,
                     duration: params.duration,
                     easing: Animate.easeInOut
                 });
-                //WHILE bringing in the next scene
+                // WHILE bringing in the next scene
                 await Animate.to(nextScene, {
                     x: 0, y: 0,
                     duration: params.duration,
                     easing: Animate.easeInOut
                 });
-                //We only "await" on the last Animate, so that they both move at the same time
+                // We only "await" on the last Animate, so that they both move at the same time
 
-                //Remove the old scene from stage
+                // Remove the old scene from stage
                 app.stage.removeChild(currentScene);
 
                 //And just to be nice, move the old scene back to neutral
@@ -583,49 +590,49 @@
 
         };
 
-        //Use Director setup to manage scenes alongside button clicks
+        // Use Director setup to manage scenes alongside button clicks
         Director.addScene("first", scene1);
         Director.addScene("second", scene2);
         Director.addScene("third", scene3);
         Director.addScene("fourth", scene4);
         Director.addScene("fifth", scene5);
 
-        //First next button, goes to second scene
+        // First next button, goes to second scene
         nextButton.onclick = () => {
             Director.showScene("second", { transition: Director.blink });
         }
 
-        //Buttons for second slide, goes to first scene
+        // Buttons for second slide, goes to first scene
         backButton.onclick = () => {
             Director.showScene("first", { transition: Director.blink });
         }
 
-        //Next button, goes to third scene
+        // Next button, goes to third scene
         nextButtonTwo.onclick = () => {
             Director.showScene("third", { transition: Director.blink });
         }
 
-        //Buttons for third slide, goes to second scene
+        // Buttons for third slide, goes to second scene
         backButtonTwo.onclick = () => {
             Director.showScene("second", { transition: Director.blink })
         }
 
-        //Next button, goes to fourth scene
+        // Next button, goes to fourth scene
         nextButtonThree.onclick = () => {
             Director.showScene("fourth", { transition: Director.blink });
         }
 
-        //Buttons for fourth slide, goes to third scene
+        // Buttons for fourth slide, goes to third scene
         backButtonThree.onclick = () => {
             Director.showScene("third", { transition: Director.blink });
         }
 
-        //Next button goes to fifth scene
+        // Next button goes to fifth scene
         nextButtonFour.onclick = () => {
             Director.showScene("fifth", { transition: Director.blink });
         }
 
-        //Buttons for fifth slide, goes to fourth scene
+        // Buttons for fifth slide, goes to fourth scene
         backButtonFour.onclick = () => {
             Director.showScene("fourth", { transition: Director.blink });
         }
@@ -679,7 +686,7 @@
         }
         AnimateLoop();
 
-        // pause animation function
+        // Pause animation function
         function pause(ms) {
             return new Promise((resolve, reject) => {
                 setTimeout(resolve, ms);
@@ -691,7 +698,7 @@
             cancelAnimationFrame(obj).animationID;
         }
 
-        // animate background school of fish, get larger as pass right
+        // Animate background school of fish, get larger as pass right
         async function backgroundFish() {
             await Animate.to(school, {
                 x: -1000, y: 55,
@@ -708,7 +715,7 @@
         }
         backgroundFish();
 
-        // animate kelp
+        // Animate kelp
         async function sway() {
             await Animate.to(kelp1, {
                 x: 50, y: 0,
@@ -738,7 +745,7 @@
         }
         sway2();
 
-        // animate fish2, cycle random tint colors
+        // Animate fish2, cycle random tint colors
         async function idleSwim2() {
             await Animate.to(fish2, {
                 x: 30, y: 20,
@@ -755,7 +762,7 @@
         }
         idleSwim2();
 
-        // animate fish3
+        // Animate fish3
         async function idleSwim3() {
             await Animate.to(fish3, {
                 x: 350, y: 0,
@@ -771,13 +778,13 @@
         }
         idleSwim3();
 
-        // make fish3 interactive
+        // Make fish3 interactive
         fish3.interactive = true;
 
-        // on pointerdown make fish3 blow bubble, rise to surface and pop
+        // On pointerdown make fish3 blow bubble, rise to surface and pop
         fish3.on('pointerdown', fishBubble);
 
-        // create betta fish bubble
+        // Create betta fish bubble
         let bettaBubble = new PIXI.Graphics();
         bettaBubble.beginFill(0xFFFFFF);
         bettaBubble.drawCircle(350, 30, 3, 25);
@@ -785,7 +792,7 @@
         app.stage.addChild(bettaBubble);
         bettaBubble.visible = false;
 
-        // animate betta fish bubble
+        // Animate betta fish bubble
         async function fishBubble() {
             bettaBubble.visible = true;
             await Animate.to(bettaBubble, {
@@ -817,7 +824,7 @@
         // Make ghost interactive
         ghost.interactive = true;
 
-        // On pointerdown, call talk function, starting state of boo and booText
+        // On pointerdown, call talk function, starting state of boo and booText not visible
         ghost.on('pointerdown', talk);
         boo.visible = false;
         booText.visible = false;
