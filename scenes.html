@@ -647,34 +647,11 @@
             Director.showScene("fourth", { transition: Director.blink });
         }
 
-
-        /*
-            This week's homework!
-    
-            Accept the assignment invite for Meet The Fish (when it goes up).
-    
-            Put together a multi-scened presentation to show off fictional profiles of 3 of *your* fish. (Replace the ones in the images folder here.)
-    
-            (Read up on the Graphics and Text display objects here:)
-            
-                https://pixijs.download/dev/docs/PIXI.Graphics.html
-                https://pixijs.download/dev/docs/PIXI.Text.html
-            
-            (They will help.)
-            
-            Each fish should be Animated on their profile page in their own unique way.
-            
-            There should be – at least – a title screen, and one screen for each fish but bonus points for adding on more.
-    
-            Add to the button system so that the buttons look more aesthetic.
-    
-            Add in a new transition of your choice and implement it on one of your transitions.
-    
-        */
-
+        //
         // Animate logic, for background animations
+        //
 
-        // Animate loop function
+        // Animate loop function for bubbles
         function AnimateLoop() {
             let time = Date.now();
 
@@ -703,7 +680,7 @@
             });
         }
 
-        // stop animation function
+        // Stop animation function
         Animate.stop = function (obj) {
             cancelAnimationFrame(obj).animationID;
         }

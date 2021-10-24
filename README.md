@@ -56,5 +56,9 @@ This iteration of the project was smooth for the most part, save for simple typo
 
 [PixiJS](https://pixijs.com)
 
+[Pixi Graphics Documentation](https://pixijs.download/dev/docs/PIXI.Graphics.html)
+
+[Pixi Text Documentation](https://pixijs.download/dev/docs/PIXI.Text.html)
+
 
 
