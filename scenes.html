@@ -164,11 +164,12 @@
         app.stage.addChild(coral2);
 
         // My container for the first two fish sprites
-        var my_container = new PIXI.Container();
-        my_container.addChild(fish1);
-        my_container.addChild(fish2);
-        my_container.y = 100;
-        app.stage.addChild(my_container);
+        //var my_container = new PIXI.Container();
+        //my_container.addChild(fish1);
+        //my_container.addChild(fish2);
+        //my_container.y = 100;
+        //app.stage.addChild(my_container);
+        
 
         // My sprite for the bubbles
         let bubble1 = new PIXI.Sprite.from("img/bubble.png");
@@ -248,6 +249,9 @@
         // SCENE 2 structure
         let scene2 = new PIXI.Container();
 
+        // Add fish 2 to scene 2
+        scene2.addChild(fish2);
+
         // Make back button UI
         let backButton = UI.Button(0, 0, "< Back");
 
@@ -294,6 +298,9 @@
         // Scene 3 structure
         let scene3 = new PIXI.Container();
 
+        // Add fish 3 to scene 3
+        scene3.addChild(fish3);
+
         // Scene 3 Title Text
         let scene3Text = new PIXI.Text("Betta Fish", { fontFamily: 'sarif', fill: 0xFFFFFF });
         scene3Text.x = 510;
@@ -308,15 +315,6 @@
         sceneThreeMask.x = 75;
         sceneThreeMask.y = 125;
         scene3.addChild(sceneThreeMask)
-
-        // Scene mask two
-        let sceneThreeMaskTwo = new PIXI.Graphics();
-        sceneThreeMaskTwo.beginFill(0xEEEEEE);
-        sceneThreeMaskTwo.drawCircle(0, 0, 125, 125);
-        sceneThreeMaskTwo.alpha = .95;
-        sceneThreeMaskTwo.x = 500;
-        sceneThreeMaskTwo.y = 225;
-        scene3.addChild(sceneThreeMaskTwo)
 
         // Scene 3 body text
         let fish2Text = new PIXI.Text('This is the Betta Fish! \nA perfect digital replica \nof my own real betta, \nit spends time making \nbubble nests and resting \non its leaf.', { fill: 0x000000 });
@@ -339,6 +337,9 @@
 
         // Scene 4 structure
         let scene4 = new PIXI.Container();
+
+        // Add fish 1 to scene 4
+        scene4.addChild(fish1);
 
         // Scene 4 Title Text
         let scene4Text = new PIXI.Text("Silver Fish", { fontFamily: 'sarif', fill: 0xFFFFFF });
