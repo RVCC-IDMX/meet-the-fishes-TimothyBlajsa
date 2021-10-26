@@ -1,11 +1,11 @@
-body {
+body{
     background-color: gainsboro;
 }
-canvas {
+canvas{
     width:100%;
     height:100%;
 }
-.nameplate {
+.nameplate{
     background-color: lightgray;
     width:25rem;
     height:8rem;
