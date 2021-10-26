@@ -2,7 +2,8 @@ body{
     background-color: gainsboro;
 }
 canvas{
-    width:100%;
+    padding: 1rem;
+    width:85%;
     height:100%;
 }
 .nameplate{
